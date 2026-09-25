@@ -1,0 +1,198 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-on-accent: var(--on-accent);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-line: var(--line);
+}
+
+:root {
+  --surface: #0a0b0a;
+  --surface-raised: #121412;
+  --ink: #f3f1e8;
+  --ink-muted: #a7aaa1;
+  --accent: #c6ff32;
+  --accent-ink: var(--accent);
+  --on-accent: #0a0b0a;
+  --line: rgb(243 241 232 / 14%);
+  --text-display: clamp(3.5rem, 1.7rem + 7.7vw, 11rem);
+  --text-h1: clamp(3rem, 1.75rem + 5vw, 8rem);
+  --text-h2: clamp(2.25rem, 1.4rem + 3.4vw, 5.5rem);
+  --text-body: clamp(1rem, 0.94rem + 0.25vw, 1.25rem);
+  --text-small: clamp(0.75rem, 0.72rem + 0.12vw, 0.875rem);
+  --space-section: clamp(5rem, 2.4rem + 8vw, 14rem);
+  --page-gutter: clamp(1rem, 0.35rem + 2.6vw, 4rem);
+  --content-max: 160rem;
+}
+
+/* Acid lime stays the fill accent; text and focus rings use a deeper lime for AA contrast on parchment. */
+:root[data-theme="light"] {
+  color-scheme: light;
+  --surface: #f2ede1;
+  --surface-raised: #e7e1d2;
+  --ink: #161713;
+  --ink-muted: #55584f;
+  --accent-ink: #4a6800;
+  --line: rgb(22 23 19 / 16%);
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: clip;
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.shell {
+  width: min(100%, var(--content-max));
+  margin-inline: auto;
+  padding-inline: var(--page-gutter);
+}
+
+.section-space {
+  padding-block: var(--space-section);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+@keyframes hero-rise {
+  from {
+    translate: 0 0.35em;
+  }
+}
+
+@keyframes hero-orb-in {
+  from {
+    opacity: 0.4;
+    scale: 0.92;
+  }
+}
+
+/* Headings split into words; each word rises from behind its own mask. */
+.split-word {
+  display: inline-block;
+  overflow: clip;
+  /* Room for descenders under tight display leading, given back via margin. */
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+  vertical-align: top;
+}
+
+.split-word > span {
+  display: inline-block;
+  transform-origin: 0 100%;
+}
+
+/*
+ * Project photos rest sharp but desaturated under a theme tint. Hovering the
+ * card (or focusing a link inside it) grows a full-colour copy out of a circle
+ * centred where the pointer entered; keyboard focus reveals from the centre.
+ * Touch devices can't hover, so they always see the colour photo.
+ */
+.project-photo {
+  filter: grayscale(1) contrast(1.05);
+}
+
+/*
+ * Only the radius animates. It is a registered property so it can interpolate
+ * on its own; the origin must jump straight to the pointer, not slide there.
+ */
+@property --reveal-radius {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+.project-reveal {
+  --reveal-radius: 0%;
+  clip-path: circle(var(--reveal-radius) at var(--reveal-x, 50%) var(--reveal-y, 50%));
+  transition: --reveal-radius 0.85s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* 150% of the reference radius reaches the far corner from any origin. */
+.group:is(:hover, :focus-within) .project-reveal {
+  --reveal-radius: 150%;
+}
+
+@media (hover: none) {
+  .project-reveal {
+    clip-path: none;
+  }
+
+  .project-veil {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-reveal {
+    transition-duration: 0.01ms;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal] {
+    --reveal-ease: cubic-bezier(0.16, 1, 0.3, 1);
+    transition:
+      opacity 0.9s var(--reveal-ease) var(--reveal-delay, 0s),
+      translate 1.1s var(--reveal-ease) var(--reveal-delay, 0s),
+      scale 1.1s var(--reveal-ease) var(--reveal-delay, 0s),
+      filter 0.9s var(--reveal-ease) var(--reveal-delay, 0s);
+  }
+
+  [data-reveal="pending"] {
+    opacity: 0;
+    translate: 0 3rem;
+    scale: 0.97;
+    filter: blur(10px);
+  }
+
+  [data-reveal] .split-word > span {
+    transition:
+      translate 1.1s var(--reveal-ease)
+        calc(var(--reveal-delay, 0s) + var(--word-index, 0) * 70ms),
+      rotate 1.1s var(--reveal-ease)
+        calc(var(--reveal-delay, 0s) + var(--word-index, 0) * 70ms);
+  }
+
+  [data-reveal="pending"] .split-word > span {
+    translate: 0 110%;
+    rotate: 7deg;
+  }
+
+  .hero-rise {
+    animation: hero-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-orb-in {
+    animation: hero-orb-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

@@ -1,0 +1,1583 @@
+
+ RUN  v5.0.1 /home/popey/Personal/Project/portfolio2
+
+ ❯ src/app/design-tokens.test.ts (11 tests | 5 failed) 24ms
+   ❯ fluid design tokens (11)
+     × maps --color-ink-muted to the semantic --ink-muted variable in @theme inline 7ms
+     × maps --color-surface-raised to the semantic --surface-raised variable in @theme inline 2ms
+     × maps --color-line to the semantic --line variable in @theme inline 2ms
+     × gates reveal hiding behind prefers-reduced-motion: no-preference 1ms
+     × defines a light parchment theme that overrides the semantic surfaces 1ms
+ ❯ src/components/ui/reveal.test.tsx (4 tests | 4 failed) 202ms
+   × server-renders visible content without an inline hidden opacity 66ms
+   × never hides content when reduced motion is preferred 94ms
+   × keeps content already in the viewport visible at mount 20ms
+   × reveals below-the-fold content once it intersects 16ms
+ ❯ src/components/hero/hero.test.tsx (4 tests | 1 failed) 681ms
+   × server-renders the hero heading and actions without hidden opacity 73ms
+ ❯ src/components/projects/projects.test.tsx (6 tests | 1 failed) 690ms
+   × scales an inner artwork layer while the clipped frame stays fixed 58ms
+ ❯ src/components/about/tech-marquee.test.tsx (8 tests | 4 failed) 1264ms
+   × builds two identical lanes that each repeat the skills four times without a seam spacer 29ms
+   × disables the control with accurate text when reduced motion is preferred 89ms
+   × reacts to reduced-motion preference changes after mount 66ms
+   × hydrates without mismatch and then reflects reduced motion 66ms
+ ❯ src/components/contact/contact.test.tsx (16 tests | 2 failed) 1161ms
+   ❯ LocalTime (6)
+     × aligns the first update to the next minute boundary, then ticks every minute 23ms
+     × exposes a machine-readable Bangkok date-time 24ms
+ ❯ src/components/hero/hero-scene.test.ts (8 tests | 5 failed) 24ms
+   ❯ orb framing (4)
+     × keeps the fully distorted orb inside the square-or-wider frame (aspect 1) with margin 7ms
+     × keeps the fully distorted orb inside the square-or-wider frame (aspect 1.25) with margin 1ms
+     × keeps the fully distorted orb inside the square-or-wider frame (aspect 2) with margin 1ms
+   ❯ scene quality (2)
+     × lowers detail and pixel ratio on coarse-pointer or narrow devices 6ms
+     × never exceeds a device pixel ratio of 1.5 1ms
+ ❯ src/components/layout/site-header.test.tsx (11 tests | 5 failed) 1626ms
+   × toggles and stores a light parchment theme with accurate pressed state 689ms
+   × reflects a theme applied before hydration 150ms
+   × condenses once the hero leaves the viewport 58ms
+   × closes the drawer without focusing the hidden trigger when crossing to desktop 218ms
+   × focuses the first drawer link and wraps focus at both boundaries 129ms
+ ❯ src/lib/time.test.ts (2 tests | 1 failed) 12ms
+   × computes the delay until the next whole minute 8ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 28 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/app/design-tokens.test.ts > fluid design tokens > maps --color-ink-muted to the semantic --ink-muted variable in @theme inline
+AssertionError: expected '\n  --font-sans: var(--font-geist-san…' to match /--color-ink-muted:\s*var\(--ink-muted…/
+
+- Expected:
+/--color-ink-muted:\s*var\(--ink-muted\)/
+
++ Received:
+"
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-accent: var(--accent);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+"
+
+ ❯ src/app/design-tokens.test.ts:25:19
+     23|   ])("maps %s to the semantic %s variable in @theme inline", (utility,…
+     24|     const theme = css.match(/@theme inline\s*\{([^}]*)\}/)?.[1] ?? "";
+     25|     expect(theme).toMatch(new RegExp(`${utility}:\\s*var\\(${token}\\)…
+       |                   ^
+     26|   });
+     27|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/28]⎯
+
+ FAIL  src/app/design-tokens.test.ts > fluid design tokens > maps --color-surface-raised to the semantic --surface-raised variable in @theme inline
+AssertionError: expected '\n  --font-sans: var(--font-geist-san…' to match /--color-surface-raised:\s*var\(--surf…/
+
+- Expected:
+/--color-surface-raised:\s*var\(--surface-raised\)/
+
++ Received:
+"
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-accent: var(--accent);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+"
+
+ ❯ src/app/design-tokens.test.ts:25:19
+     23|   ])("maps %s to the semantic %s variable in @theme inline", (utility,…
+     24|     const theme = css.match(/@theme inline\s*\{([^}]*)\}/)?.[1] ?? "";
+     25|     expect(theme).toMatch(new RegExp(`${utility}:\\s*var\\(${token}\\)…
+       |                   ^
+     26|   });
+     27|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/28]⎯
+
+ FAIL  src/app/design-tokens.test.ts > fluid design tokens > maps --color-line to the semantic --line variable in @theme inline
+AssertionError: expected '\n  --font-sans: var(--font-geist-san…' to match /--color-line:\s*var\(--line\)/
+
+- Expected:
+/--color-line:\s*var\(--line\)/
+
++ Received:
+"
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-accent: var(--accent);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+"
+
+ ❯ src/app/design-tokens.test.ts:25:19
+     23|   ])("maps %s to the semantic %s variable in @theme inline", (utility,…
+     24|     const theme = css.match(/@theme inline\s*\{([^}]*)\}/)?.[1] ?? "";
+     25|     expect(theme).toMatch(new RegExp(`${utility}:\\s*var\\(${token}\\)…
+       |                   ^
+     26|   });
+     27|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/28]⎯
+
+ FAIL  src/app/design-tokens.test.ts > fluid design tokens > gates reveal hiding behind prefers-reduced-motion: no-preference
+AssertionError: expected 0 to be greater than 0
+ ❯ src/app/design-tokens.test.ts:30:33
+     28|   it("gates reveal hiding behind prefers-reduced-motion: no-preference…
+     29|     const pendingRules = [...css.matchAll(/\[data-reveal="pending"\]/g…
+     30|     expect(pendingRules.length).toBeGreaterThan(0);
+       |                                 ^
+     31|     const noPreference = css.match(
+     32|       /@media \(prefers-reduced-motion: no-preference\)\s*\{([\s\S]*?)…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/28]⎯
+
+ FAIL  src/app/design-tokens.test.ts > fluid design tokens > defines a light parchment theme that overrides the semantic surfaces
+AssertionError: expected '' to match /--surface:/
+
+- Expected:
+/--surface:/
+
++ Received:
+""
+
+ ❯ src/app/design-tokens.test.ts:43:21
+     41|     const light = css.match(/:root\[data-theme="light"\]\s*\{([^}]*)\}…
+     42|     for (const token of ["--surface", "--surface-raised", "--ink", "--…
+     43|       expect(light).toMatch(new RegExp(`${token}:`));
+       |                     ^
+     44|     }
+     45|     expect(light).toMatch(/color-scheme:\s*light/);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/28]⎯
+
+ FAIL  src/lib/time.test.ts > computes the delay until the next whole minute
+AssertionError: expected undefined to be type of 'function'
+
+Expected: "function"
+Received: "undefined"
+
+ ❯ src/lib/time.test.ts:11:29
+      9|   ).msUntilNextMinute;
+     10|
+     11|   expect(msUntilNextMinute).toBeTypeOf("function");
+       |                             ^
+     12|   expect(msUntilNextMinute!(new Date("2026-09-24T12:00:45.250Z"))).toB…
+     13|   expect(msUntilNextMinute!(new Date("2026-09-24T12:00:00.000Z"))).toB…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/28]⎯
+
+ FAIL  src/components/about/tech-marquee.test.tsx > builds two identical lanes that each repeat the skills four times without a seam spacer
+AssertionError: expected [ …(2) ] to have a length of +0 but got 2
+
+- Expected
++ Received
+
+- 0
++ 2
+
+ ❯ src/components/about/tech-marquee.test.tsx:115:70
+    113|   expect(lanes).toHaveLength(2);
+    114|   expect(track).toHaveAttribute("data-marquee-lanes", "2");
+    115|   expect(within(track).queryAllByTestId("tech-marquee-seam-spacer")).t…
+       |                                                                      ^
+    116|
+    117|   for (const lane of lanes) {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/28]⎯
+
+ FAIL  src/components/about/tech-marquee.test.tsx > disables the control with accurate text when reduced motion is preferred
+TestingLibraryElementError: Unable to find an accessible element with the role "button" and name `/technology animation disabled by reduced motion/i`
+
+Here are the accessible roles:
+
+  region:
+
+  Name "Technology stack":
+  [36m<section[39m
+    [33maria-label[39m=[32m"Technology stack"[39m
+    [33mclass[39m=[32m"relative border-y border-white/10 py-[clamp(1.25rem,2.5vw,2rem)]"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  button:
+
+  Name "Pause technology animation":
+  [36m<button[39m
+    [33maria-label[39m=[32m"Pause technology animation"[39m
+    [33maria-pressed[39m=[32m"false"[39m
+    [33mclass[39m=[32m"inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-full border border-white/15 text-ink transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent hover:border-accent hover:text-accent"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  list:
+
+  Name "":
+  [36m<ul[39m
+    [33mclass[39m=[32m"sr-only"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  listitem:
+
+  Name "":
+  [36m<li />[39m
+
+  Name "":
+  [36m<li />[39m
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section[39m
+      [33maria-label[39m=[32m"Technology stack"[39m
+      [33mclass[39m=[32m"relative border-y border-white/10 py-[clamp(1.25rem,2.5vw,2rem)]"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"shell min-w-0"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"flex min-w-0 items-center gap-[clamp(0.75rem,2vw,1.5rem)]"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33maria-label[39m=[32m"Pause technology animation"[39m
+            [33maria-pressed[39m=[32m"false"[39m
+            [33mclass[39m=[32m"inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-full border border-white/15 text-ink transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent hover:border-accent hover:text-accent"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-pause size-4"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mheight[39m=[32m"24"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"24"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<rect[39m
+                [33mheight[39m=[32m"18"[39m
+                [33mrx[39m=[32m"1"[39m
+                [33mwidth[39m=[32m"5"[39m
+                [33mx[39m=[32m"14"[39m
+                [33my[39m=[32m"3"[39m
+              [36m/>[39m
+              [36m<rect[39m
+                [33mheight[39m=[32m"18"[39m
+                [33mrx[39m=[32m"1"[39m
+                [33mwidth[39m=[32m"5"[39m
+                [33mx[39m=[32m"5"[39m
+                [33my[39m=[32m"3"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</button>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"min-w-0 flex-1 overflow-x-clip"[39m
+          [36m>[39m
+            [36m<ul[39m
+              [33mclass[39m=[32m"sr-only"[39m
+            [36m>[39m
+              [36m<li>[39m
+                [0mReact[0m
+              [36m</li>[39m
+              [36m<li>[39m
+                [0mNext.js[0m
+              [36m</li>[39m
+            [36m</ul>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex w-max animate-tech-marquee"[39m
+              [33mdata-marquee-lanes[39m=[32m"2"[39m
+              [33mdata-marquee-seam[39m=[32m"lane-internal"[39m
+              [33mdata-reduced-motion[39m=[32m"false"[39m
+              [33mdata-testid[39m=[32m"tech-marquee-track"[39m
+              [33mstyle[39m=[32m"animation-play-state: running;"[39m
+            [36m>[39m
+              [36m<ul[39m
+                [33maria-hidden[39m=[32m"true"[39m
+                [33mclass[39m=[32m"flex shrink-0 items-center gap-[clamp(1.5rem,4vw,4rem)]"[39m
+                [33mdata-marquee-seam[39m=[32m"internal"[39m
+                [33mdata-testid[39m=[32m"tech-marquee-lane"[39m
+              [36m>[39m
+                [36m<li[39m
+                  [33mclass[39m=[32m"whitespace-nowrap font-mono text-[length:var(--text-small)] uppercase tracking-[0.18em] text-ink-muted"[39m
+                [36m>[39m
+                  [0mReact[0m
+                [36m</li>[39m
+                [36m<li[39m
+                  [33mclass[39m=[32m"whitespace-nowrap font-mono text-[length:var(--text-small)] uppercase tracking-[0.18em] text-ink-muted"[39m
+                [36m>[39m
+                  [0mNext.js[0m
+                [36m</li>[39m
+                [36m<li[39m
+                  [33maria-hidden[39m=[32m"true"[39m
+                  [33mclass[39m=[32m"w-[clamp(1.5rem,4vw,4rem)] shrink-0"[39m
+                  [33mdata-testid[39m=[32m"tech-marquee-seam-spacer"[39m
+                [36m/>[39m
+              [36m</ul>[39m
+              [36m<ul[39m
+                [33maria-hidden[39m=[32m"true"[39m
+                [33mclass[39m=[32m"flex shrink-0 items-center gap-[clamp(1.5rem,4vw,4rem)]"[39m
+                [33mdata-marquee-seam[39m=[32m"internal"[39m
+                [33mdata-testid[39m=[32m"tech-marquee-lane"[39m
+              [36m>[39m
+                [36m<li[39m
+                  [33mclass[39m=[32m"whitespace-nowrap font-mono text-[length:var(--text-small)] uppercase tracking-[0.18em] text-ink-muted"[39m
+                [36m>[39m
+                  [0mReact[0m
+                [36m</li>[39m
+                [36m<li[39m
+                  [33mclass[39m=[32m"whitespace-nowrap font-mono text-[length:var(--text-small)] uppercase tracking-[0.18em] text-ink-muted"[39m
+                [36m>[39m
+                  [0mNext.js[0m
+                [36m</li>[39m
+                [36m<li[39m
+                  [33maria-hidden[39m=[32m"true"[39m
+                  [33mclass[39m=[32m"w-[clamp(1.5rem,4vw,4rem)] shrink-0"[39m
+                  [33mdata-testid[39m=[32m"tech-marquee-seam-spacer"[39m
+                [36m/>[39m
+              [36m</ul>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ src/components/about/tech-marquee.test.tsx:136:26
+    134|
+    135|   const track = screen.getByTestId("tech-marquee-track");
+    136|   const control = screen.getByRole("button", {
+       |                          ^
+    137|     name: /technology animation disabled by reduced motion/i,
+    138|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/28]⎯
+
+ FAIL  src/components/about/tech-marquee.test.tsx > reacts to reduced-motion preference changes after mount
+TestingLibraryElementError: Unable to find an accessible element with the role "button" and name `/technology animation disabled by reduced motion/i`
+
+Here are the accessible roles:
+
+  region:
+
+  Name "Technology stack":
+  [36m<section[39m
+    [33maria-label[39m=[32m"Technology stack"[39m
+    [33mclass[39m=[32m"relative border-y border-white/10 py-[clamp(1.25rem,2.5vw,2rem)]"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  button:
+
+  Name "Pause technology animation":
+  [36m<button[39m
+    [33maria-label[39m=[32m"Pause technology animation"[39m
+    [33maria-pressed[39m=[32m"false"[39m
+    [33mclass[39m=[32m"inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-full border border-white/15 text-ink transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent hover:border-accent hover:text-accent"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  list:
+
+  Name "":
+  [36m<ul[39m
+    [33mclass[39m=[32m"sr-only"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  listitem:
+
+  Name "":
+  [36m<li />[39m
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section[39m
+      [33maria-label[39m=[32m"Technology stack"[39m
+      [33mclass[39m=[32m"relative border-y border-white/10 py-[clamp(1.25rem,2.5vw,2rem)]"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"shell min-w-0"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"flex min-w-0 items-center gap-[clamp(0.75rem,2vw,1.5rem)]"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33maria-label[39m=[32m"Pause technology animation"[39m
+            [33maria-pressed[39m=[32m"false"[39m
+            [33mclass[39m=[32m"inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-full border border-white/15 text-ink transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent hover:border-accent hover:text-accent"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-pause size-4"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mheight[39m=[32m"24"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"24"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<rect[39m
+                [33mheight[39m=[32m"18"[39m
+                [33mrx[39m=[32m"1"[39m
+                [33mwidth[39m=[32m"5"[39m
+                [33mx[39m=[32m"14"[39m
+                [33my[39m=[32m"3"[39m
+              [36m/>[39m
+              [36m<rect[39m
+                [33mheight[39m=[32m"18"[39m
+                [33mrx[39m=[32m"1"[39m
+                [33mwidth[39m=[32m"5"[39m
+                [33mx[39m=[32m"5"[39m
+                [33my[39m=[32m"3"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</button>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"min-w-0 flex-1 overflow-x-clip"[39m
+          [36m>[39m
+            [36m<ul[39m
+              [33mclass[39m=[32m"sr-only"[39m
+            [36m>[39m
+              [36m<li>[39m
+                [0mReact[0m
+              [36m</li>[39m
+            [36m</ul>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex w-max animate-tech-marquee"[39m
+              [33mdata-marquee-lanes[39m=[32m"2"[39m
+              [33mdata-marquee-seam[39m=[32m"lane-internal"[39m
+              [33mdata-reduced-motion[39m=[32m"false"[39m
+              [33mdata-testid[39m=[32m"tech-marquee-track"[39m
+              [33mstyle[39m=[32m"animation-play-state: running;"[39m
+            [36m>[39m
+              [36m<ul[39m
+                [33maria-hidden[39m=[32m"true"[39m
+                [33mclass[39m=[32m"flex shrink-0 items-center gap-[clamp(1.5rem,4vw,4rem)]"[39m
+                [33mdata-marquee-seam[39m=[32m"internal"[39m
+                [33mdata-testid[39m=[32m"tech-marquee-lane"[39m
+              [36m>[39m
+                [36m<li[39m
+                  [33mclass[39m=[32m"whitespace-nowrap font-mono text-[length:var(--text-small)] uppercase tracking-[0.18em] text-ink-muted"[39m
+                [36m>[39m
+                  [0mReact[0m
+                [36m</li>[39m
+                [36m<li[39m
+                  [33maria-hidden[39m=[32m"true"[39m
+                  [33mclass[39m=[32m"w-[clamp(1.5rem,4vw,4rem)] shrink-0"[39m
+                  [33mdata-testid[39m=[32m"tech-marquee-seam-spacer"[39m
+                [36m/>[39m
+              [36m</ul>[39m
+              [36m<ul[39m
+                [33maria-hidden[39m=[32m"true"[39m
+                [33mclass[39m=[32m"flex shrink-0 items-center gap-[clamp(1.5rem,4vw,4rem)]"[39m
+                [33mdata-marquee-seam[39m=[32m"internal"[39m
+                [33mdata-testid[39m=[32m"tech-marquee-lane"[39m
+              [36m>[39m
+                [36m<li[39m
+                  [33mclass[39m=[32m"whitespace-nowrap font-mono text-[length:var(--text-small)] uppercase tracking-[0.18em] text-ink-muted"[39m
+                [36m>[39m
+                  [0mReact[0m
+                [36m</li>[39m
+                [36m<li[39m
+                  [33maria-hidden[39m=[32m"true"[39m
+                  [33mclass[39m=[32m"w-[clamp(1.5rem,4vw,4rem)] shrink-0"[39m
+                  [33mdata-testid[39m=[32m"tech-marquee-seam-spacer"[39m
+                [36m/>[39m
+              [36m</ul>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ src/components/about/tech-marquee.test.tsx:155:12
+    153|
+    154|   expect(
+    155|     screen.getByRole("button", {
+       |            ^
+    156|       name: /technology animation disabled by reduced motion/i,
+    157|     }),
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/28]⎯
+
+ FAIL  src/components/about/tech-marquee.test.tsx > hydrates without mismatch and then reflects reduced motion
+Error: expect(element).toBeDisabled()
+
+Received element is not disabled:
+  <button
+  aria-label="Pause technology animation"
+  aria-pressed="false"
+  class="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-full border border-white/15 text-ink transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent hover:border-accent hover:text-accent"
+  type="button"
+/>
+ ❯ src/components/about/tech-marquee.test.tsx:182:19
+    180|
+    181|   const control = within(container).getByRole("button");
+    182|   expect(control).toBeDisabled();
+       |                   ^
+    183|   expect(control).toHaveAccessibleName(
+    184|     "Technology animation disabled by reduced motion",
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/28]⎯
+
+ FAIL  src/components/contact/contact.test.tsx > LocalTime > aligns the first update to the next minute boundary, then ticks every minute
+TestingLibraryElementError: Unable to find an element with the text: 19:01 GMT+7. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<time[39m
+      [33mclass[39m=[32m"font-mono text-(length:--text-small) uppercase tracking-[0.16em] text-ink-muted"[39m
+    [36m>[39m
+      [0m19:00 GMT+7[0m
+    [36m</time>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ src/components/contact/contact.test.tsx:175:19
+    173|
+    174|     act(() => vi.advanceTimersByTime(1));
+    175|     expect(screen.getByText("19:01 GMT+7")).toBeVisible();
+       |                   ^
+    176|
+    177|     act(() => vi.advanceTimersByTime(59_999));
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/28]⎯
+
+ FAIL  src/components/contact/contact.test.tsx > LocalTime > exposes a machine-readable Bangkok date-time
+Error: expect(element).toHaveAttribute("datetime", "2026-09-25T03:30+07:00") // element.getAttribute("datetime") === "2026-09-25T03:30+07:00"
+
+Expected the element to have attribute:
+  datetime="2026-09-25T03:30+07:00"
+Received:
+  null
+ ❯ src/components/contact/contact.test.tsx:189:45
+    187|     render(<LocalTime />);
+    188|
+    189|     expect(screen.getByText("03:30 GMT+7")).toHaveAttribute(
+       |                                             ^
+    190|       "datetime",
+    191|       "2026-09-25T03:30+07:00",
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/28]⎯
+
+ FAIL  src/components/hero/hero-scene.test.ts > orb framing > keeps the fully distorted orb inside the square-or-wider frame (aspect 1) with margin
+ FAIL  src/components/hero/hero-scene.test.ts > orb framing > keeps the fully distorted orb inside the square-or-wider frame (aspect 1.25) with margin
+ FAIL  src/components/hero/hero-scene.test.ts > orb framing > keeps the fully distorted orb inside the square-or-wider frame (aspect 2) with margin
+AssertionError: expected 1.4276186427841069 to be less than or equal to 0.9
+ ❯ src/components/hero/hero-scene.test.ts:39:20
+     37|       });
+     38|
+     39|       expect(fill).toBeLessThanOrEqual(0.9);
+       |                    ^
+     40|       expect(fill).toBeGreaterThanOrEqual(0.6);
+     41|     },
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/28]⎯
+
+ FAIL  src/components/hero/hero-scene.test.ts > scene quality > lowers detail and pixel ratio on coarse-pointer or narrow devices
+AssertionError: expected undefined to be type of 'function'
+
+Expected: "function"
+Received: "undefined"
+
+ ❯ src/components/hero/hero-scene.test.ts:57:29
+     55|
+     56|   it("lowers detail and pixel ratio on coarse-pointer or narrow device…
+     57|     expect(getSceneQuality).toBeTypeOf("function");
+       |                             ^
+     58|     const full = getSceneQuality!({ isCoarsePointer: false, isNarrow: …
+     59|     const coarse = getSceneQuality!({ isCoarsePointer: true, isNarrow:…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/28]⎯
+
+ FAIL  src/components/hero/hero-scene.test.ts > scene quality > never exceeds a device pixel ratio of 1.5
+TypeError: getSceneQuality is not a function
+ ❯ src/components/hero/hero-scene.test.ts:72:25
+     70|     for (const isCoarsePointer of [false, true]) {
+     71|       for (const isNarrow of [false, true]) {
+     72|         const { dpr } = getSceneQuality!({ isCoarsePointer, isNarrow }…
+       |                         ^
+     73|         expect(dpr[1]).toBeLessThanOrEqual(1.5);
+     74|         expect(dpr[0]).toBeGreaterThanOrEqual(1);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/28]⎯
+
+ FAIL  src/components/hero/hero.test.tsx > server-renders the hero heading and actions without hidden opacity
+AssertionError: expected 'opacity:0;transform:translateY(24px)' not to match /opacity/
+
+- Expected:
+/opacity/
+
++ Received:
+"opacity:0;transform:translateY(24px)"
+
+ ❯ src/components/hero/hero.test.tsx:57:50
+     55|   expect(heading).not.toBeNull();
+     56|   for (let node: HTMLElement | null = heading; node; node = node.paren…
+     57|     expect(node.getAttribute("style") ?? "").not.toMatch(/opacity/);
+       |                                                  ^
+     58|     expect(node).not.toHaveAttribute("data-reveal", "pending");
+     59|   }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/28]⎯
+
+ FAIL  src/components/layout/site-header.test.tsx > toggles and stores a light parchment theme with accurate pressed state
+TestingLibraryElementError: Unable to find an accessible element with the role "button" and name "Light theme"
+
+Here are the accessible roles:
+
+  banner:
+
+  Name "":
+  [36m<header[39m
+    [33mclass[39m=[32m"sticky top-0 z-50 border-b border-white/10 bg-surface/90 backdrop-blur-xl"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  link:
+
+  Name "Aung Myat Kyaw, home":
+  [36m<a[39m
+    [33maria-label[39m=[32m"Aung Myat Kyaw, home"[39m
+    [33mclass[39m=[32m"inline-flex min-h-11 items-center justify-center transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent gap-3 text-ink"[39m
+    [33mhref[39m=[32m"#top"[39m
+  [36m/>[39m
+
+  Name "About":
+  [36m<a[39m
+    [33mclass[39m=[32m"inline-flex min-h-11 items-center justify-center transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent px-4 text-sm text-ink-muted"[39m
+    [33mhref[39m=[32m"#about"[39m
+  [36m/>[39m
+
+  Name "Work":
+  [36m<a[39m
+    [33mclass[39m=[32m"inline-flex min-h-11 items-center justify-center transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent px-4 text-sm text-ink-muted"[39m
+    [33mhref[39m=[32m"#work"[39m
+  [36m/>[39m
+
+  Name "Contact":
+  [36m<a[39m
+    [33mclass[39m=[32m"inline-flex min-h-11 items-center justify-center transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent px-4 text-sm text-ink-muted"[39m
+    [33mhref[39m=[32m"#contact"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  navigation:
+
+  Name "Primary":
+  [36m<nav[39m
+    [33maria-label[39m=[32m"Primary"[39m
+    [33mclass[39m=[32m"flex items-center gap-1"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  button:
+
+  Name "Use lime accent":
+  [36m<button[39m
+    [33maria-label[39m=[32m"Use lime accent"[39m
+    [33maria-pressed[39m=[32m"true"[39m
+    [33mclass[39m=[32m"grid size-11 place-items-center border border-white/20 transition-colors hover:border-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "Open menu":
+  [36m<button[39m
+    [33maria-expanded[39m=[32m"false"[39m
+    [33maria-haspopup[39m=[32m"dialog"[39m
+    [33maria-label[39m=[32m"Open menu"[39m
+    [33mclass[39m=[32m"grid size-11 place-items-center border border-white/20 text-ink lg:hidden transition-colors hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<header[39m
+      [33mclass[39m=[32m"sticky top-0 z-50 border-b border-white/10 bg-surface/90 backdrop-blur-xl"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"shell flex min-h-20 items-center justify-between gap-4"[39m
+      [36m>[39m
+        [36m<a[39m
+          [33maria-label[39m=[32m"Aung Myat Kyaw, home"[39m
+          [33mclass[39m=[32m"inline-flex min-h-11 items-center justify-center transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent gap-3 text-ink"[39m
+          [33mhref[39m=[32m"#top"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"grid size-11 place-items-center border border-accent font-mono text-xs font-bold tracking-widest text-accent"[39m
+          [36m>[39m
+            [0mAMK[0m
+          [36m</span>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"hidden text-sm font-semibold tracking-tight sm:block"[39m
+          [36m>[39m
+            [0mAung Myat Kyaw[0m
+          [36m</span>[39m
+        [36m</a>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"hidden items-center gap-5 lg:flex"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex items-center gap-2 text-xs text-ink-muted"[39m
+          [36m>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"size-2 rounded-full bg-ink-muted shadow-[0_0_12px_var(--ink-muted)]"[39m
+            [36m/>[39m
+            [36m<span>[39m
+              [0mOpen for collaborations[0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+            [36m>[39m
+              [0m·[0m
+            [36m</span>[39m
+            [36m<span>[39m
+              [0mBangkok, Thailand[0m
+            [36m</span>[39m
+          [36m</div>[39m
+          [36m<nav[39m
+            [33maria-label[39m=[32m"Primary"[39m
+            [33mclass[39m=[32m"flex items-center gap-1"[39m
+          [36m>[39m
+            [36m<a[39m
+              [33mclass[39m=[32m"inline-flex min-h-11 items-center justify-center transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent px-4 text-sm text-ink-muted"[39m
+              [33mhref[39m=[32m"#about"[39m
+            [36m>[39m
+              [0mAbout[0m
+            [36m</a>[39m
+            [36m<a[39m
+              [33mclass[39m=[32m"inline-flex min-h-11 items-center justify-center transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent px-4 text-sm text-ink-muted"[39m
+              [33mhref[39m=[32m"#work"[39m
+            [36m>[39m
+              [0mWork[0m
+            [36m</a>[39m
+            [36m<a[39m
+              [33mclass[39m=[32m"inline-flex min-h-11 items-center justify-center transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent px-4 text-sm text-ink-muted"[39m
+              [33mhref[39m=[32m"#contact"[39m
+            [36m>[39m
+              [0mContact[0m
+            [36m</a>[39m
+          [36m</nav>[39m
+          [36m<button[39m
+            [33maria-label[39m=[32m"Use lime accent"[39m
+            [33maria-pressed[39m=[32m"true"[39m
+            [33mclass[39m=[32m"grid size-11 place-items-center border border-white/20 transition-colors hover:border-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"size-3 rounded-full bg-accent shadow-[0_0_10px_var(--accent)]"[39m
+            [36m/>[39m
+          [36m</button>[39m
+        [36m</div>[39m
+        [36m<button[39m
+          [33maria-expanded[39m=[32m"false"[39m
+          [33maria-haspopup[39m=[32m"dialog"[39m
+          [33maria-label[39m=[32m"Open menu"[39m
+          [33mclass[39m=[32m"grid size-11 place-items-center border border-white/20 text-ink lg:hidden transition-colors hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-menu"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"20"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"20"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M4 5h16"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M4 12h16"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M4 19h16"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+      [36m</div>[39m
+    [36m</header>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ src/components/layout/site-header.test.tsx:51:25
+     49|   render(<SiteHeader />);
+     50|
+     51|   const toggle = screen.getByRole("button", { name: "Light theme" });
+       |                         ^
+     52|   expect(toggle).toHaveAttribute("aria-pressed", "false");
+     53|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/28]⎯
+
+ FAIL  src/components/layout/site-header.test.tsx > reflects a theme applied before hydration
+TestingLibraryElementError: Unable to find an accessible element with the role "button" and name "Light theme"
+
+Here are the accessible roles:
+
+  banner:
+
+  Name "":
+  [36m<header[39m
+    [33mclass[39m=[32m"sticky top-0 z-50 border-b border-white/10 bg-surface/90 backdrop-blur-xl"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  link:
+
+  Name "Aung Myat Kyaw, home":
+  [36m<a[39m
+    [33maria-label[39m=[32m"Aung Myat Kyaw, home"[39m
+    [33mclass[39m=[32m"inline-flex min-h-11 items-center justify-center transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent gap-3 text-ink"[39m
+    [33mhref[39m=[32m"#top"[39m
+  [36m/>[39m
+
+  Name "About":
+  [36m<a[39m
+    [33mclass[39m=[32m"inline-flex min-h-11 items-center justify-center transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent px-4 text-sm text-ink-muted"[39m
+    [33mhref[39m=[32m"#about"[39m
+  [36m/>[39m
+
+  Name "Work":
+  [36m<a[39m
+    [33mclass[39m=[32m"inline-flex min-h-11 items-center justify-center transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent px-4 text-sm text-ink-muted"[39m
+    [33mhref[39m=[32m"#work"[39m
+  [36m/>[39m
+
+  Name "Contact":
+  [36m<a[39m
+    [33mclass[39m=[32m"inline-flex min-h-11 items-center justify-center transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent px-4 text-sm text-ink-muted"[39m
+    [33mhref[39m=[32m"#contact"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  navigation:
+
+  Name "Primary":
+  [36m<nav[39m
+    [33maria-label[39m=[32m"Primary"[39m
+    [33mclass[39m=[32m"flex items-center gap-1"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  button:
+
+  Name "Use lime accent":
+  [36m<button[39m
+    [33maria-label[39m=[32m"Use lime accent"[39m
+    [33maria-pressed[39m=[32m"true"[39m
+    [33mclass[39m=[32m"grid size-11 place-items-center border border-white/20 transition-colors hover:border-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "Open menu":
+  [36m<button[39m
+    [33maria-expanded[39m=[32m"false"[39m
+    [33maria-haspopup[39m=[32m"dialog"[39m
+    [33maria-label[39m=[32m"Open menu"[39m
+    [33mclass[39m=[32m"grid size-11 place-items-center border border-white/20 text-ink lg:hidden transition-colors hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<header[39m
+      [33mclass[39m=[32m"sticky top-0 z-50 border-b border-white/10 bg-surface/90 backdrop-blur-xl"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"shell flex min-h-20 items-center justify-between gap-4"[39m
+      [36m>[39m
+        [36m<a[39m
+          [33maria-label[39m=[32m"Aung Myat Kyaw, home"[39m
+          [33mclass[39m=[32m"inline-flex min-h-11 items-center justify-center transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent gap-3 text-ink"[39m
+          [33mhref[39m=[32m"#top"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"grid size-11 place-items-center border border-accent font-mono text-xs font-bold tracking-widest text-accent"[39m
+          [36m>[39m
+            [0mAMK[0m
+          [36m</span>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"hidden text-sm font-semibold tracking-tight sm:block"[39m
+          [36m>[39m
+            [0mAung Myat Kyaw[0m
+          [36m</span>[39m
+        [36m</a>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"hidden items-center gap-5 lg:flex"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex items-center gap-2 text-xs text-ink-muted"[39m
+          [36m>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"size-2 rounded-full bg-ink-muted shadow-[0_0_12px_var(--ink-muted)]"[39m
+            [36m/>[39m
+            [36m<span>[39m
+              [0mOpen for collaborations[0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+            [36m>[39m
+              [0m·[0m
+            [36m</span>[39m
+            [36m<span>[39m
+              [0mBangkok, Thailand[0m
+            [36m</span>[39m
+          [36m</div>[39m
+          [36m<nav[39m
+            [33maria-label[39m=[32m"Primary"[39m
+            [33mclass[39m=[32m"flex items-center gap-1"[39m
+          [36m>[39m
+            [36m<a[39m
+              [33mclass[39m=[32m"inline-flex min-h-11 items-center justify-center transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent px-4 text-sm text-ink-muted"[39m
+              [33mhref[39m=[32m"#about"[39m
+            [36m>[39m
+              [0mAbout[0m
+            [36m</a>[39m
+            [36m<a[39m
+              [33mclass[39m=[32m"inline-flex min-h-11 items-center justify-center transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent px-4 text-sm text-ink-muted"[39m
+              [33mhref[39m=[32m"#work"[39m
+            [36m>[39m
+              [0mWork[0m
+            [36m</a>[39m
+            [36m<a[39m
+              [33mclass[39m=[32m"inline-flex min-h-11 items-center justify-center transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent px-4 text-sm text-ink-muted"[39m
+              [33mhref[39m=[32m"#contact"[39m
+            [36m>[39m
+              [0mContact[0m
+            [36m</a>[39m
+          [36m</nav>[39m
+          [36m<button[39m
+            [33maria-label[39m=[32m"Use lime accent"[39m
+            [33maria-pressed[39m=[32m"true"[39m
+            [33mclass[39m=[32m"grid size-11 place-items-center border border-white/20 transition-colors hover:border-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"size-3 rounded-full bg-accent shadow-[0_0_10px_var(--accent)]"[39m
+            [36m/>[39m
+          [36m</button>[39m
+        [36m</div>[39m
+        [36m<button[39m
+          [33maria-expanded[39m=[32m"false"[39m
+          [33maria-haspopup[39m=[32m"dialog"[39m
+          [33maria-label[39m=[32m"Open menu"[39m
+          [33mclass[39m=[32m"grid size-11 place-items-center border border-white/20 text-ink lg:hidden transition-colors hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-menu"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"20"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"20"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M4 5h16"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M4 12h16"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M4 19h16"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+      [36m</div>[39m
+    [36m</header>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ src/components/layout/site-header.test.tsx:69:17
+     67|   render(<SiteHeader />);
+     68|
+     69|   expect(screen.getByRole("button", { name: "Light theme" })).toHaveAt…
+       |                 ^
+     70|     "aria-pressed",
+     71|     "true",
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/28]⎯
+
+ FAIL  src/components/layout/site-header.test.tsx > condenses once the hero leaves the viewport
+Error: expect(element).toHaveAttribute("data-condensed", "false") // element.getAttribute("data-condensed") === "false"
+
+Expected the element to have attribute:
+  data-condensed="false"
+Received:
+  null
+ ❯ src/components/layout/site-header.test.tsx:94:18
+     92|   render(<SiteHeader />);
+     93|   const header = screen.getByRole("banner");
+     94|   expect(header).toHaveAttribute("data-condensed", "false");
+       |                  ^
+     95|
+     96|   act(() => callbacks.forEach((callback) => callback([{ isIntersecting…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/28]⎯
+
+ FAIL  src/components/layout/site-header.test.tsx > closes the drawer without focusing the hidden trigger when crossing to desktop
+Error: expect(element).not.toBeInTheDocument()
+
+expected document not to contain element, found <div
+  aria-label="Navigation"
+  aria-modal="true"
+  class="fixed inset-0 z-50 bg-surface"
+  role="dialog"
+>
+  <div
+    class="shell flex min-h-svh flex-col py-4"
+  >
+    <div
+      class="flex min-h-16 items-center justify-between border-b border-white/10"
+    >
+      <p
+        class="font-mono text-xs uppercase tracking-[0.24em] text-ink-muted"
+      >
+        Menu / 
+        Bangkok, Thailand
+      </p>
+      <div
+        class="flex gap-2"
+      >
+        <button
+          aria-label="Use lime accent"
+          aria-pressed="true"
+          class="grid size-11 place-items-center border border-white/20 transition-colors hover:border-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+            class="size-3 rounded-full bg-accent shadow-[0_0_10px_var(--accent)]"
+          />
+        </button>
+        <button
+          aria-label="Close menu"
+          class="grid size-11 place-items-center border border-white/20 transition-colors hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="lucide lucide-x"
+            fill="none"
+            height="20"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18 6 6 18"
+            />
+            <path
+              d="m6 6 12 12"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <nav
+      aria-label="Mobile"
+      class="flex flex-1 flex-col justify-center py-10"
+    >
+      <a
+        class="flex min-h-16 items-center border-b border-white/10 text-[clamp(2.5rem,11vw,5rem)] font-semibold leading-none tracking-tighter transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+        href="#about"
+        style="opacity: 0.07414190415875055; transform: translateY(18.51716191682499px);"
+      >
+        <span
+          aria-hidden="true"
+          class="mr-4 font-mono text-xs text-accent"
+        >
+          0
+          1
+        </span>
+        About
+      </a>
+      <a
+        class="flex min-h-16 items-center border-b border-white/10 text-[clamp(2.5rem,11vw,5rem)] font-semibold leading-none tracking-tighter transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+        href="#work"
+        style="opacity: 0; transform: translateY(20px);"
+      >
+        <span
+          aria-hidden="true"
+          class="mr-4 font-mono text-xs text-accent"
+        >
+          0
+          2
+        </span>
+        Work
+      </a>
+      <a
+        class="flex min-h-16 items-center border-b border-white/10 text-[clamp(2.5rem,11vw,5rem)] font-semibold leading-none tracking-tighter transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+        href="#contact"
+        style="opacity: 0; transform: translateY(20px);"
+      >
+        <span
+          aria-hidden="true"
+          class="mr-4 font-mono text-xs text-accent"
+        >
+          0
+          3
+        </span>
+        Contact
+      </a>
+    </nav>
+    <div
+      class="flex min-h-16 items-center justify-between border-t border-white/10"
+    >
+      <span
+        class="text-xs text-ink-muted"
+      >
+        Open for collaborations
+      </span>
+      <div
+        class="flex gap-4"
+      >
+        <a
+          class="inline-flex min-h-11 items-center text-sm text-ink-muted transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+          href="https://www.linkedin.com/in/leo17/"
+          rel="noreferrer"
+          target="_blank"
+        >
+          LinkedIn
+        </a>
+        <a
+          class="inline-flex min-h-11 items-center text-sm text-ink-muted transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+          href="https://github.com/popey17"
+          rel="noreferrer"
+          target="_blank"
+        >
+          GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+</div> instead
+ ❯ src/components/layout/site-header.test.tsx:115:44
+    113|   act(() => setMedia(desktopQuery, true));
+    114|
+    115|   expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+       |                                            ^
+    116|   expect(trigger).not.toHaveFocus();
+    117|   expect(screen.getByRole("link", { name: /home/i })).toHaveFocus();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/28]⎯
+
+ FAIL  src/components/layout/site-header.test.tsx > focuses the first drawer link and wraps focus at both boundaries
+TestingLibraryElementError: Unable to find an accessible element with the role "button" and name `/light theme/i`
+
+Here are the accessible roles:
+
+  paragraph:
+
+  Name "":
+  [36m<p[39m
+    [33mclass[39m=[32m"font-mono text-xs uppercase tracking-[0.24em] text-ink-muted"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  button:
+
+  Name "Use lime accent":
+  [36m<button[39m
+    [33maria-label[39m=[32m"Use lime accent"[39m
+    [33maria-pressed[39m=[32m"true"[39m
+    [33mclass[39m=[32m"grid size-11 place-items-center border border-white/20 transition-colors hover:border-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "Close menu":
+  [36m<button[39m
+    [33maria-label[39m=[32m"Close menu"[39m
+    [33mclass[39m=[32m"grid size-11 place-items-center border border-white/20 transition-colors hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  navigation:
+
+  Name "Mobile":
+  [36m<nav[39m
+    [33maria-label[39m=[32m"Mobile"[39m
+    [33mclass[39m=[32m"flex flex-1 flex-col justify-center py-10"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  link:
+
+  Name "About":
+  [36m<a[39m
+    [33mclass[39m=[32m"flex min-h-16 items-center border-b border-white/10 text-[clamp(2.5rem,11vw,5rem)] font-semibold leading-none tracking-tighter transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"[39m
+    [33mhref[39m=[32m"#about"[39m
+    [33mstyle[39m=[32m"opacity: 0; transform: translateY(20px);"[39m
+  [36m/>[39m
+
+  Name "Work":
+  [36m<a[39m
+    [33mclass[39m=[32m"flex min-h-16 items-center border-b border-white/10 text-[clamp(2.5rem,11vw,5rem)] font-semibold leading-none tracking-tighter transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"[39m
+    [33mhref[39m=[32m"#work"[39m
+    [33mstyle[39m=[32m"opacity: 0; transform: translateY(20px);"[39m
+  [36m/>[39m
+
+  Name "Contact":
+  [36m<a[39m
+    [33mclass[39m=[32m"flex min-h-16 items-center border-b border-white/10 text-[clamp(2.5rem,11vw,5rem)] font-semibold leading-none tracking-tighter transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"[39m
+    [33mhref[39m=[32m"#contact"[39m
+    [33mstyle[39m=[32m"opacity: 0; transform: translateY(20px);"[39m
+  [36m/>[39m
+
+  Name "LinkedIn":
+  [36m<a[39m
+    [33mclass[39m=[32m"inline-flex min-h-11 items-center text-sm text-ink-muted transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"[39m
+    [33mhref[39m=[32m"https://www.linkedin.com/in/leo17/"[39m
+    [33mrel[39m=[32m"noreferrer"[39m
+    [33mtarget[39m=[32m"_blank"[39m
+  [36m/>[39m
+
+  Name "GitHub":
+  [36m<a[39m
+    [33mclass[39m=[32m"inline-flex min-h-11 items-center text-sm text-ink-muted transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"[39m
+    [33mhref[39m=[32m"https://github.com/popey17"[39m
+    [33mrel[39m=[32m"noreferrer"[39m
+    [33mtarget[39m=[32m"_blank"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+[36m<div[39m
+  [33maria-label[39m=[32m"Navigation"[39m
+  [33maria-modal[39m=[32m"true"[39m
+  [33mclass[39m=[32m"fixed inset-0 z-50 bg-surface"[39m
+  [33mrole[39m=[32m"dialog"[39m
+[36m>[39m
+  [36m<div[39m
+    [33mclass[39m=[32m"shell flex min-h-svh flex-col py-4"[39m
+  [36m>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"flex min-h-16 items-center justify-between border-b border-white/10"[39m
+    [36m>[39m
+      [36m<p[39m
+        [33mclass[39m=[32m"font-mono text-xs uppercase tracking-[0.24em] text-ink-muted"[39m
+      [36m>[39m
+        [0mMenu / [0m
+        [0mBangkok, Thailand[0m
+      [36m</p>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"flex gap-2"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33maria-label[39m=[32m"Use lime accent"[39m
+          [33maria-pressed[39m=[32m"true"[39m
+          [33mclass[39m=[32m"grid size-11 place-items-center border border-white/20 transition-colors hover:border-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"size-3 rounded-full bg-accent shadow-[0_0_10px_var(--accent)]"[39m
+          [36m/>[39m
+        [36m</button>[39m
+        [36m<button[39m
+          [33maria-label[39m=[32m"Close menu"[39m
+          [33mclass[39m=[32m"grid size-11 place-items-center border border-white/20 transition-colors hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-x"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"20"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"20"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M18 6 6 18"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"m6 6 12 12"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+      [36m</div>[39m
+    [36m</div>[39m
+    [36m<nav[39m
+      [33maria-label[39m=[32m"Mobile"[39m
+      [33mclass[39m=[32m"flex flex-1 flex-col justify-center py-10"[39m
+    [36m>[39m
+      [36m<a[39m
+        [33mclass[39m=[32m"flex min-h-16 items-center border-b border-white/10 text-[clamp(2.5rem,11vw,5rem)] font-semibold leading-none tracking-tighter transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"[39m
+        [33mhref[39m=[32m"#about"[39m
+        [33mstyle[39m=[32m"opacity: 0; transform: translateY(20px);"[39m
+      [36m>[39m
+        [36m<span[39m
+          [33maria-hidden[39m=[32m"true"[39m
+          [33mclass[39m=[32m"mr-4 font-mono text-xs text-accent"[39m
+        [36m>[39m
+          [0m0[0m
+          [0m1[0m
+        [36m</span>[39m
+        [0mAbout[0m
+      [36m</a>[39m
+      [36m<a[39m
+        [33mclass[39m=[32m"flex min-h-16 items-center border-b border-white/10 text-[clamp(2.5rem,11vw,5rem)] font-semibold leading-none tracking-tighter transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"[39m
+        [33mhref[39m=[32m"#work"[39m
+        [33mstyle[39m=[32m"opacity: 0; transform: translateY(20px);"[39m
+      [36m>[39m
+        [36m<span[39m
+          [33maria-hidden[39m=[32m"true"[39m
+          [33mclass[39m=[32m"mr-4 font-mono text-xs text-accent"[39m
+        [36m>[39m
+          [0m0[0m
+          [0m2[0m
+        [36m</span>[39m
+        [0mWork[0m
+      [36m</a>[39m
+      [36m<a[39m
+        [33mclass[39m=[32m"flex min-h-16 items-center border-b border-white/10 text-[clamp(2.5rem,11vw,5rem)] font-semibold leading-none tracking-tighter transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"[39m
+        [33mhref[39m=[32m"#contact"[39m
+        [33mstyle[39m=[32m"opacity: 0; transform: translateY(20px);"[39m
+      [36m>[39m
+        [36m<span[39m
+          [33maria-hidden[39m=[32m"true"[39m
+          [33mclass[39m=[32m"mr-4 font-mono text-xs text-accent"[39m
+        [36m>[39m
+          [0m0[0m
+          [0m3[0m
+        [36m</span>[39m
+        [0mContact[0m
+      [36m</a>[39m
+    [36m</nav>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"flex min-h-16 items-center justify-between border-t border-white/10"[39m
+    [36m>[39m
+      [36m<span[39m
+        [33mclass[39m=[32m"text-xs text-ink-muted"[39m
+      [36m>[39m
+        [0mOpen for collaborations[0m
+      [36m</span>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"flex gap-4"[39m
+      [36m>[39m
+        [36m<a[39m
+          [33mclass[39m=[32m"inline-flex min-h-11 items-center text-sm text-ink-muted transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"[39m
+          [33mhref[39m=[32m"https://www.linkedin.com/in/leo17/"[39m
+          [33mrel[39m=[32m"noreferrer"[39m
+          [33mtarget[39m=[32m"_blank"[39m
+        [36m>[39m
+          [0mLinkedIn[0m
+        [36m</a>[39m
+        [36m<a[39m
+          [33mclass[39m=[32m"inline-flex min-h-11 items-center text-sm text-ink-muted transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"[39m
+          [33mhref[39m=[32m"https://github.com/popey17"[39m
+          [33mrel[39m=[32m"noreferrer"[39m
+          [33mtarget[39m=[32m"_blank"[39m
+        [36m>[39m
+          [0mGitHub[0m
+        [36m</a>[39m
+      [36m</div>[39m
+    [36m</div>[39m
+  [36m</div>[39m
+[36m</div>[39m
+ ❯ Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ src/components/layout/site-header.test.tsx:142:41
+    140|   expect(firstLink).toHaveFocus();
+    141|
+    142|   const firstFocusable = within(drawer).getByRole("button", {
+       |                                         ^
+    143|     name: /light theme/i,
+    144|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[21/28]⎯
+
+ FAIL  src/components/projects/projects.test.tsx > scales an inner artwork layer while the clipped frame stays fixed
+TestingLibraryElementError: Unable to find an element by: [data-testid="project-artwork-layer"]
+
+Ignored nodes: comments, script, style
+[36m<div[39m
+  [33maria-hidden[39m=[32m"true"[39m
+  [33mclass[39m=[32m"relative aspect-4/3 min-h-56 overflow-clip border border-white/10 bg-[#111310] transition-transform duration-700 ease-out motion-reduce:transition-none [@media(hover:hover)]:group-hover:scale-[1.015]"[39m
+  [33mdata-testid[39m=[32m"project-visual-orb"[39m
+  [33mdata-visual[39m=[32m"orb"[39m
+[36m>[39m
+  [36m<div[39m
+    [33mclass[39m=[32m"absolute inset-0 bg-[radial-gradient(circle_at_22%_18%,rgba(243,241,232,0.12),transparent_28%),linear-gradient(135deg,#171a16,#090a09)]"[39m
+  [36m/>[39m
+  [36m<div[39m
+    [33mclass[39m=[32m"absolute left-1/2 top-1/2 aspect-square w-[55%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_32%_28%,#f3f1e8_0%,#8d9188_12%,#2b2e2a_43%,#101210_68%,#050605_100%)] shadow-[0_2rem_6rem_rgba(243,241,232,0.12)]"[39m
+  [36m/>[39m
+  [36m<div[39m
+    [33mclass[39m=[32m"absolute left-[13%] top-[17%] h-px w-[22%] bg-white/35"[39m
+  [36m/>[39m
+  [36m<span[39m
+    [33mclass[39m=[32m"absolute bottom-[9%] right-[8%] font-mono text-[0.65rem] tracking-[0.24em] text-white/45"[39m
+  [36m>[39m
+    [0mINTELLIGENCE / 01[0m
+  [36m</span>[39m
+  [36m<span[39m
+    [33mclass[39m=[32m"sr-only"[39m
+  [36m>[39m
+    [0mLeo's Personal AI Chatbot[0m
+    [0m abstract project artwork[0m
+  [36m</span>[39m
+[36m</div>[39m
+ ❯ Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ src/components/projects/projects.test.tsx:73:33
+     71|   for (const project of projects) {
+     72|     const frame = screen.getByTestId(`project-visual-${project.visual}…
+     73|     const layer = within(frame).getByTestId("project-artwork-layer");
+       |                                 ^
+     74|
+     75|     expect(frame).toHaveClass("overflow-clip");
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[22/28]⎯
+
+ FAIL  src/components/ui/reveal.test.tsx > server-renders visible content without an inline hidden opacity
+AssertionError: expected '<div class="" style="opacity:0;transf…' not to match /opacity/
+
+- Expected:
+/opacity/
+
++ Received:
+"<div class=\"\" style=\"opacity:0;transform:translateY(24px)\">Visible copy</div>"
+
+ ❯ src/components/ui/reveal.test.tsx:44:20
+     42|
+     43|   expect(html).toContain("Visible copy");
+     44|   expect(html).not.toMatch(/opacity/);
+       |                    ^
+     45|   expect(html).not.toMatch(/data-reveal="pending"/);
+     46| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[23/28]⎯
+
+ FAIL  src/components/ui/reveal.test.tsx > never hides content when reduced motion is preferred
+AssertionError: expected '0' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ 0
+
+ ❯ src/components/ui/reveal.test.tsx:58:33
+     56|   const wrapper = screen.getByText("Reduced copy").parentElement!;
+     57|   expect(wrapper).not.toHaveAttribute("data-reveal", "pending");
+     58|   expect(wrapper.style.opacity).toBe("");
+       |                                 ^
+     59| });
+     60|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[24/28]⎯
+
+ FAIL  src/components/ui/reveal.test.tsx > keeps content already in the viewport visible at mount
+Error: expect(element).toHaveAttribute("data-reveal", "static") // element.getAttribute("data-reveal") === "static"
+
+Expected the element to have attribute:
+  data-reveal="static"
+Received:
+  null
+ ❯ src/components/ui/reveal.test.tsx:69:60
+     67|   );
+     68|
+     69|   expect(screen.getByText("Above the fold").parentElement).toHaveAttri…
+       |                                                            ^
+     70|     "data-reveal",
+     71|     "static",
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[25/28]⎯
+
+ FAIL  src/components/ui/reveal.test.tsx > reveals below-the-fold content once it intersects
+Error: expect(element).toHaveAttribute("data-reveal", "pending") // element.getAttribute("data-reveal") === "pending"
+
+Expected the element to have attribute:
+  data-reveal="pending"
+Received:
+  null
+ ❯ src/components/ui/reveal.test.tsx:89:21
+     87|     );
+     88|     const wrapper = screen.getByText("Later copy").parentElement!;
+     89|     expect(wrapper).toHaveAttribute("data-reveal", "pending");
+       |                     ^
+     90|     expect(wrapper.style.getPropertyValue("--reveal-delay")).toBe("0.1…
+     91|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[26/28]⎯
+
+
+ Test Files  9 failed | 1 passed (10)
+      Tests  28 failed | 43 passed (71)
+   Start at  21:01:04
+   Duration  5.49s (environment 55%, tests 18%, import 14%, setup 7%, transform 4%, worker 2%)
+
+Environment  jsdom was created 10 times · 16.79s total, 55% of tracked time
+             create it once per worker with pool: 'vmThreads' (keeps per-file isolation) or isolate: false (shares it across files)
+             learn more: https://vitest.dev/guide/improving-performance#test-environments
+

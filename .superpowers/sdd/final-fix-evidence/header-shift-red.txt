@@ -1,0 +1,56 @@
+
+Running 2 tests using 2 workers
+
+(node:2558851) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2558850) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2558850) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2558851) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 [chromium] › e2e/final-review.spec.ts:315:1 › condensed header keeps a constant height under reduced motion (750ms)
+  ✘  1 [chromium] › e2e/final-review.spec.ts:273:1 › header condenses its inner bar after the hero without shifting layout (30.1s)
+
+
+  1) [chromium] › e2e/final-review.spec.ts:273:1 › header condenses its inner bar after the hero without shifting layout 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.boundingBox: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByTestId('header-bar')
+
+
+      291 |   await page.waitForTimeout(400);
+      292 |   const before = await layout();
+    > 293 |   const expandedBar = (await bar.boundingBox())!.height;
+          |                                  ^
+      294 |
+      295 |   await page.mouse.wheel(0, 1600);
+      296 |   await expect(header).toHaveAttribute("data-condensed", "true");
+        at /home/popey/Personal/Project/portfolio2/e2e/final-review.spec.ts:293:34
+
+    Error Context: test-results/final-review-header-conden-53220-ero-without-shifting-layout-chromium/error-context.md
+
+  2) [chromium] › e2e/final-review.spec.ts:315:1 › condensed header keeps a constant height under reduced motion 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 81
+    Received: 57
+
+      325 |   await page.mouse.wheel(0, 1600);
+      326 |   await expect(header).toHaveAttribute("data-condensed", "true");
+    > 327 |   expect((await header.boundingBox())!.height).toBe(expanded);
+          |                                                ^
+      328 |   await expect(page.getByTestId("header-bar")).toHaveCSS("transition-duration", "0s");
+      329 | });
+      330 |
+        at /home/popey/Personal/Project/portfolio2/e2e/final-review.spec.ts:327:48
+
+    Error Context: test-results/final-review-condensed-hea-d83a8-height-under-reduced-motion-chromium/error-context.md
+
+  2 failed
+    [chromium] › e2e/final-review.spec.ts:273:1 › header condenses its inner bar after the hero without shifting layout 
+    [chromium] › e2e/final-review.spec.ts:315:1 › condensed header keeps a constant height under reduced motion 

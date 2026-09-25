@@ -1,0 +1,11 @@
+[
+  { "name": "HTML5", "icon": "html5" },
+  { "name": "CSS3", "icon": "css" },
+  { "name": "JavaScript", "icon": "javascript" },
+  { "name": "React", "icon": "react" },
+  { "name": "Next.js", "icon": "nextdotjs" },
+  { "name": "PHP", "icon": "php" },
+  { "name": "Laravel", "icon": "laravel" },
+  { "name": "Git", "icon": "git" },
+  { "name": "Cloud Services", "icon": "lucide:cloud" }
+]

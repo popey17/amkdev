@@ -1,0 +1,49 @@
+
+> portfolio2@1.0.0 test:e2e
+> playwright test
+
+
+Running 24 tests using 4 workers
+
+(node:2550329) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2550323) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2550343) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2550322) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2550329) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2550323) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2550343) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2550322) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   3 [chromium] › e2e/final-review.spec.ts:107:1 › semantic color utilities resolve to their tokens in the browser (860ms)
+  ✓   2 [chromium] › e2e/final-review.spec.ts:76:3 › reveal visibility › server HTML is fully visible without JavaScript (986ms)
+  ✓   6 [chromium] › e2e/final-review.spec.ts:157:3 › each marquee lane covers the visible rail at 1440px with an exact seam (837ms)
+  ✓   5 [chromium] › e2e/final-review.spec.ts:125:1 › mobile drawer scrolls in a short landscape viewport while the body stays locked (1.5s)
+  ✓   7 [chromium] › e2e/final-review.spec.ts:157:3 › each marquee lane covers the visible rail at 2560px with an exact seam (731ms)
+  ✓   1 [chromium] › e2e/final-review.spec.ts:87:3 › reveal visibility › hero heading is visible at first paint while below-fold sections still reveal (3.2s)
+  ✓   8 [chromium] › e2e/final-review.spec.ts:157:3 › each marquee lane covers the visible rail at 3840px with an exact seam (619ms)
+  ✓   4 [chromium] › e2e/final-review.spec.ts:62:3 › reveal visibility › reduced motion keeps every revealed section at computed opacity 1 after hydration (3.1s)
+  ✓   9 [chromium] › e2e/final-review.spec.ts:195:1 › marquee control reflects reduced motion after hydration (769ms)
+  ✓  13 [chromium] › e2e/final-review.spec.ts:318:1 › metadata names the developer and role (633ms)
+  ✓  12 [chromium] › e2e/final-review.spec.ts:292:1 › drawer closes when the viewport crosses to desktop and focus stays visible (2.1s)
+  ✓  11 [chromium] › e2e/final-review.spec.ts:273:1 › header condenses after leaving the hero (2.4s)
+  ✓  10 [chromium] › e2e/final-review.spec.ts:210:1 › theme toggle switches to a stored light parchment theme with AA contrast (2.6s)
+  ✓  16 [chromium] › e2e/portfolio.spec.ts:47:3 › has no horizontal overflow at 375px (616ms)
+  ✓  17 [chromium] › e2e/portfolio.spec.ts:47:3 › has no horizontal overflow at 768px (659ms)
+  ✓  15 [chromium] › e2e/portfolio.spec.ts:3:1 › composes the portfolio sections in the required landmark order (1.4s)
+  ✓  18 [chromium] › e2e/portfolio.spec.ts:47:3 › has no horizontal overflow at 1440px (829ms)
+  ✓  19 [chromium] › e2e/portfolio.spec.ts:47:3 › has no horizontal overflow at 2560px (635ms)
+  ✓  20 [chromium] › e2e/portfolio.spec.ts:47:3 › has no horizontal overflow at 3840px (763ms)
+  ✓  22 [chromium] › e2e/portfolio.spec.ts:89:1 › reduced motion disables marquee animation and keeps fallback content (705ms)
+  ✓  14 [chromium] › e2e/final-review.spec.ts:330:1 › project hover scales the inner artwork while the clipped frame stays fixed (4.0s)
+  ✓  24 [chromium] › e2e/portfolio.spec.ts:151:1 › uses native document scrolling (924ms)
+  ✓  21 [chromium] › e2e/portfolio.spec.ts:61:1 › mobile navigation is keyboard operable and restores focus (1.8s)
+  ✓  23 [chromium] › e2e/portfolio.spec.ts:105:1 › keeps the hero usable when WebGL is unavailable (1.7s)
+
+  24 passed (20.7s)

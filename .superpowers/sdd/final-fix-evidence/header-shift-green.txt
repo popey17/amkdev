@@ -1,0 +1,34 @@
+
+Running 13 tests using 4 workers
+
+(node:2561718) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2561722) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2561741) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2561744) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2561718) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2561722) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2561741) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2561744) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › e2e/final-review.spec.ts:107:1 › semantic color utilities resolve to their tokens in the browser (696ms)
+  ✓   2 [chromium] › e2e/final-review.spec.ts:125:1 › mobile drawer scrolls in a short landscape viewport while the body stays locked (1.5s)
+  ✓   5 [chromium] › e2e/final-review.spec.ts:315:1 › condensed header keeps a constant height under reduced motion (1.3s)
+  ✓   3 [chromium] › e2e/final-review.spec.ts:210:1 › theme toggle switches to a stored light parchment theme with AA contrast (2.5s)
+  ✓   8 [chromium] › e2e/portfolio.spec.ts:47:3 › has no horizontal overflow at 375px (380ms)
+  ✓   7 [chromium] › e2e/portfolio.spec.ts:3:1 › composes the portfolio sections in the required landmark order (932ms)
+  ✓   6 [chromium] › e2e/final-review.spec.ts:331:1 › drawer closes when the viewport crosses to desktop and focus stays visible (1.7s)
+  ✓   4 [chromium] › e2e/final-review.spec.ts:273:1 › header condenses its inner bar after the hero without shifting layout (3.3s)
+  ✓   9 [chromium] › e2e/portfolio.spec.ts:47:3 › has no horizontal overflow at 768px (596ms)
+  ✓  10 [chromium] › e2e/portfolio.spec.ts:47:3 › has no horizontal overflow at 1440px (627ms)
+  ✓  11 [chromium] › e2e/portfolio.spec.ts:47:3 › has no horizontal overflow at 2560px (493ms)
+  ✓  12 [chromium] › e2e/portfolio.spec.ts:47:3 › has no horizontal overflow at 3840px (518ms)
+  ✓  13 [chromium] › e2e/portfolio.spec.ts:61:1 › mobile navigation is keyboard operable and restores focus (910ms)
+
+  13 passed (15.4s)
