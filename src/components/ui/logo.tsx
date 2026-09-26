@@ -43,7 +43,7 @@ export function LogoWordmark({ name }: { name: string }) {
     <span className="hidden flex-col leading-none sm:flex">
       <span className="text-sm font-semibold tracking-tight">{name}</span>
       <span className="mt-1.5 font-mono text-[0.625rem] uppercase tracking-[0.22em] text-ink-muted transition-colors group-hover:text-accent-ink">
-        Developer / Bangkok
+        Developer
       </span>
     </span>
   );

@@ -7,5 +7,6 @@
   { "name": "PHP", "icon": "php" },
   { "name": "Laravel", "icon": "laravel" },
   { "name": "Git", "icon": "git" },
-  { "name": "Cloud Services", "icon": "lucide:cloud" }
+  { "name": "Cloud Services", "icon": "lucide:cloud" },
+  { "name": "Go", "icon": "go" }
 ]
