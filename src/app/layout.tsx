@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import type { ReactNode } from "react";
+import { Preload } from "@/components/preload/preload";
 import { themeStorageKey } from "@/lib/theme";
 import "./globals.css";
 
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
       >
+        <Preload />
         {children}
       </body>
     </html>

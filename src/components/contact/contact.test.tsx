@@ -17,6 +17,14 @@ beforeEach(() => {
       unobserve() {}
     },
   );
+  vi.stubGlobal(
+    "ResizeObserver",
+    class {
+      disconnect() {}
+      observe() {}
+      unobserve() {}
+    },
+  );
   window.matchMedia = () =>
     ({
       matches: false,

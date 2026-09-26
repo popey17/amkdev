@@ -2,11 +2,10 @@
 
 import { useEffect, useRef } from "react";
 
+import { SpriteSheet, frameSize } from "@/components/pixel-sprite/sprite-sheet";
 import { usePrefersReducedMotion } from "@/lib/use-media-query";
 
-import { dogSprite, personSprite, type Sprite, spritePalette } from "./footer-sprites";
-
-const pixel = 4;
+import { dogSprite, personSprite, type Sprite } from "./footer-sprites";
 
 type Gait = "idle" | "walk" | "run";
 
@@ -29,54 +28,6 @@ const cast: readonly ActorConfig[] = [
 ];
 
 const fleeRadius = 110;
-
-function frameSize(sprite: Sprite) {
-  const frame = sprite.frames[0]!;
-  return { width: frame[0]!.length * pixel, height: frame.length * pixel };
-}
-
-/** All frames side by side in one SVG; horizontal runs merge into single rects. */
-function SpriteSheet({ sprite }: { sprite: Sprite }) {
-  const columns = sprite.frames[0]![0]!.length;
-  const rows = sprite.frames[0]!.length;
-  const rects: { x: number; y: number; width: number; className: string }[] = [];
-
-  sprite.frames.forEach((frame, frameIndex) => {
-    frame.forEach((row, y) => {
-      let x = 0;
-      while (x < row.length) {
-        const char = row[x]!;
-        let end = x + 1;
-        while (end < row.length && row[end] === char) end += 1;
-        const className = spritePalette[char];
-        if (className) rects.push({ x: frameIndex * columns + x, y, width: end - x, className });
-        x = end;
-      }
-    });
-  });
-
-  return (
-    <svg
-      className="absolute left-0 top-0 block"
-      data-sprite-sheet=""
-      height={rows * pixel}
-      shapeRendering="crispEdges"
-      viewBox={`0 0 ${columns * sprite.frames.length} ${rows}`}
-      width={columns * sprite.frames.length * pixel}
-    >
-      {rects.map((rect) => (
-        <rect
-          className={rect.className}
-          height={1}
-          key={`${rect.x}-${rect.y}`}
-          width={rect.width}
-          x={rect.x}
-          y={rect.y}
-        />
-      ))}
-    </svg>
-  );
-}
 
 type ActorState = {
   config: ActorConfig;
