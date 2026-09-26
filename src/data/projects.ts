@@ -14,7 +14,7 @@ export function isLocalProjectImageSrc(
 
 export type ProjectOverlay = {
   readonly eyebrow: string;
-  readonly caption: string;
+  readonly caption?: string;
 };
 
 export type Project = {
@@ -33,6 +33,46 @@ export type Project = {
 
 export const projects = [
   {
+    slug: "go-url-shortener",
+    title: "Go URL Shortener",
+    summary: "A URL shortener built with Go and PostgreSQL.",
+    year: "2026",
+    tags: ["Go", "PostgreSQL"],
+    liveUrl: "https://github.com/popey17/go-url-shortener",
+    sourceUrl: "https://github.com/popey17/go-url-shortener",
+    visual: "orb",
+    featured: true,
+    image: {
+      src: "/images/projects/miniLink.webp",
+      alt: "Description of the project interface",
+      position: "50% 35%",
+    },
+    overlay: {
+      eyebrow: "Personal Project",
+      // caption: "A URL shortener built with Go and PostgreSQL.",
+    },
+  },
+  {
+    slug: "personal-website",
+    title: "Leo's Personal Website",
+    summary: "A personal website built with Next.js and Tailwind CSS.",
+    year: "2026",
+    tags: ["Next.js", "Tailwind CSS"],
+    liveUrl: "https://aungmyatkyaw.com/",
+    sourceUrl: "https://github.com/popey17/personal-website",
+    visual: "orb",
+    featured: true,
+    image: {
+      src: "/images/projects/img_portfolio.webp",
+      alt: "Description of the project interface",
+      position: "50% 35%",
+    },
+    overlay: {
+      eyebrow: "Personal Project"
+      // caption: "A personal website built with Next.js and Tailwind CSS.",
+    },
+  },
+  {
     slug: "personal-ai-chatbot",
     title: "Leo's Personal AI Chatbot",
     summary:
@@ -44,13 +84,13 @@ export const projects = [
     visual: "orb",
     featured: true,
     image: {
-      src: "/images/projects/example.webp",
-      alt: "Description of the project interface",
-      position: "50% 35%",
+      src: "/images/projects/leoChat.webp",
+      alt: "Leo's Personal AI Chatbot",
+      position: "100% 100%",
     },
     overlay: {
-      eyebrow: "Case study",
-      caption: "A short project highlight.",
+      eyebrow: "Personal Project"
+      // caption: "A conversational AI workspace designed around fast, focused personal assistance.",
     },
   },
   {
@@ -65,55 +105,13 @@ export const projects = [
     visual: "type",
     featured: true,
     image: {
-      src: "/images/projects/example.webp",
+      src: "/images/projects/img_3js.webp",
       alt: "Description of the project interface",
       position: "50% 35%",
     },
     overlay: {
-      eyebrow: "Case study",
-      caption: "A short project highlight.",
+      eyebrow: "Personal Project",
+      // caption: "A short project highlight.",
     },
-  },
-  {
-    slug: "award-winning-image-reveal",
-    title: "Award Winning Image Reveal",
-    summary:
-      "A cinematic hover study exploring image distortion, masking, and responsive motion.",
-    year: "2024",
-    tags: ["JavaScript", "WebGL", "Interaction"],
-    liveUrl: "https://popey17.github.io/hover_preview/",
-    sourceUrl: "https://github.com/popey17/hover_preview",
-    visual: "reveal",
-    featured: true,
-    image: {
-      src: "/images/projects/example.webp",
-      alt: "Description of the project interface",
-      position: "50% 35%",
-    },
-    overlay: {
-      eyebrow: "Case study",
-      caption: "A short project highlight.",
-    },
-  },
-  {
-    slug: "threejs-dragon",
-    title: "Three.js Dragon",
-    summary:
-      "A real-time 3D character study built for the browser with responsive camera behavior.",
-    year: "2024",
-    tags: ["Three.js", "3D", "WebGL"],
-    liveUrl: "https://popey17.github.io/3js-Dragon/",
-    sourceUrl: "https://github.com/popey17/3js-Dragon",
-    visual: "dragon",
-    featured: true,
-    image: {
-      src: "/images/projects/example.webp",
-      alt: "Description of the project interface",
-      position: "50% 35%",
-    },
-    overlay: {
-      eyebrow: "Case study",
-      caption: "A short project highlight.",
-    },
-  },
+  }
 ] as const satisfies readonly Project[];
