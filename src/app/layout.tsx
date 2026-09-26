@@ -22,7 +22,8 @@ export const metadata: Metadata = {
 };
 
 // Applies the stored theme before first paint; runs before React hydrates.
-const themeScript = `try{var t=localStorage.getItem("${themeStorageKey}");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}`;
+// Also flags the preload overlay as active, so it only shows when JS runs.
+const themeScript = `document.documentElement.dataset.preload="active";try{var t=localStorage.getItem("${themeStorageKey}");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}`;
 
 type RootLayoutProps = Readonly<{
   children: ReactNode;

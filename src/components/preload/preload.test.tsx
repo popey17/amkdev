@@ -2,6 +2,7 @@ import { act, render, screen } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { Preload } from "./preload";
+import { EXIT_MS, HOLD_MS, MIN_VISIBLE_MS } from "./progress";
 
 describe("Preload", () => {
   let reduceMotion = false;
@@ -67,5 +68,32 @@ describe("Preload", () => {
       rafCb?.(1600);
     });
     expect(screen.getByTestId("preload-walker")).toHaveAttribute("data-gait", "idle");
+  });
+
+  it("walks to 100%, lifts the curtain, then unmounts once the page is ready", async () => {
+    vi.useFakeTimers({ toFake: ["setTimeout", "clearTimeout"] });
+    Object.defineProperty(document, "readyState", { configurable: true, get: () => "complete" });
+    Object.defineProperty(document, "fonts", {
+      configurable: true,
+      value: { ready: Promise.resolve() },
+    });
+
+    render(<Preload />);
+    await act(async () => {});
+
+    for (let t = 0; t <= MIN_VISIBLE_MS + 2000 && screen.getByTestId("preload").getAttribute("aria-busy") === "true"; t += 100) {
+      act(() => {
+        now = t;
+        rafCb?.(t);
+      });
+    }
+
+    expect(screen.getByTestId("preload-track")).toHaveAttribute("aria-valuenow", "100");
+    act(() => vi.advanceTimersByTime(HOLD_MS));
+    expect(screen.getByTestId("preload")).toHaveAttribute("data-state", "exit");
+    expect(document.documentElement.dataset.preload).toBe("done");
+    act(() => vi.advanceTimersByTime(EXIT_MS));
+    expect(screen.queryByTestId("preload")).not.toBeInTheDocument();
+    vi.useRealTimers();
   });
 });

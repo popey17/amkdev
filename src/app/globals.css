@@ -196,3 +196,98 @@ body {
     animation-iteration-count: 1 !important;
   }
 }
+
+/*
+ * Preload overlay. The head script marks <html data-preload="active"> so the
+ * page can't scroll and the hero intro waits; without JS the overlay never
+ * shows. On exit the content drops away and the panel lifts like a curtain,
+ * revealing the hero as it starts to rise.
+ */
+html:not([data-preload]) .preload {
+  display: none;
+}
+
+html[data-preload="active"] {
+  overflow: hidden;
+}
+
+html[data-preload="active"] :is(.hero-rise, .hero-orb-in) {
+  animation-play-state: paused;
+}
+
+.preload {
+  --preload-ease: cubic-bezier(0.76, 0, 0.24, 1);
+  transition: translate 0.76s var(--preload-ease);
+}
+
+.preload-content {
+  transition:
+    opacity 0.3s ease-out,
+    translate 0.5s var(--preload-ease);
+}
+
+.preload[data-state="exit"] {
+  pointer-events: none;
+  translate: 0 -100%;
+}
+
+.preload[data-state="exit"] .preload-content {
+  opacity: 0;
+  translate: 0 -2rem;
+}
+
+/* Pixel kick-up trailing the heel; only while running. */
+.preload-dust {
+  position: absolute;
+  bottom: 0;
+  display: none;
+}
+
+.preload-dust > span {
+  position: absolute;
+  bottom: 0;
+  width: 4px;
+  height: 4px;
+  background: var(--ink-muted);
+  opacity: 0;
+  animation: preload-dust 0.45s steps(4) infinite;
+}
+
+.preload-dust > span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.preload-dust > span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+[data-gait="run"] > .preload-dust {
+  display: block;
+}
+
+@keyframes preload-dust {
+  from {
+    opacity: 0.7;
+    translate: 0 0;
+  }
+  to {
+    opacity: 0;
+    translate: -16px -8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preload,
+  .preload-content {
+    transition: opacity 0.3s ease-out;
+  }
+
+  .preload[data-state="exit"] {
+    opacity: 0;
+    translate: none;
+  }
+
+  .preload[data-state="exit"] .preload-content {
+    translate: none;
+  }
+}

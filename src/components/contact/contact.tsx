@@ -111,25 +111,31 @@ export function Contact({ email }: ContactProps) {
       id="contact"
       ref={footer}
     >
+      {/*
+        Exactly one screen tall on every device: spacing and the heading scale
+        with viewport height (svh), and the condensed sticky header (h-14)
+        is cleared at the top. Very short screens (landscape phones) switch to
+        two columns and drop the eyebrow.
+      */}
       <motion.div
-        className="shell pb-6 pt-[var(--space-section)]"
+        className="shell flex min-h-svh flex-col pb-[clamp(0.75rem,2.5svh,1.5rem)] pt-[calc(3.5rem+clamp(0.75rem,7svh,6rem))]"
         style={{ y: contentY }}
       >
-        <div className="grid gap-[clamp(3rem,8vw,8rem)] lg:grid-cols-[minmax(0,1.35fr)_minmax(16rem,0.65fr)]">
+        <div className="grid flex-1 content-center gap-[clamp(1.25rem,5svh,8rem)] lg:grid-cols-[minmax(0,1.35fr)_minmax(16rem,0.65fr)] [@media(max-height:32rem)]:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
           <div>
-            <p className="mb-[clamp(1.5rem,3vw,3rem)] flex items-center gap-3 font-mono text-(length:--text-small) uppercase tracking-[0.2em] text-ink-muted">
+            <p className="mb-[clamp(0.75rem,3svh,3rem)] flex items-center [@media(max-height:32rem)]:hidden gap-3 font-mono text-(length:--text-small) uppercase tracking-[0.2em] text-ink-muted">
               <span aria-hidden="true" className="h-px w-8 bg-ink/20" />
               Have a project in mind?
             </p>
             <motion.h2
-              className="max-w-[9ch] origin-bottom-left text-(length:--text-h1) font-semibold leading-[0.88] tracking-[-0.065em] text-ink"
+              className="max-w-[9ch] origin-bottom-left text-[length:min(var(--text-h1),12svh)] font-semibold leading-[0.88] tracking-[-0.065em] text-ink"
               id="contact-title"
               style={{ scale: headingScale }}
             >
               Let&apos;s work together.
             </motion.h2>
 
-            <div className="mt-[clamp(2rem,5vw,5rem)]">
+            <div className="mt-[clamp(0.75rem,5svh,5rem)]">
               {configuredEmail ? (
                 <button
                   className="group flex min-h-11 max-w-full items-center gap-3 rounded-sm text-left text-(length:--text-body) text-accent-ink outline-none transition-colors hover:text-ink focus-visible:ring-2 focus-visible:ring-accent-ink focus-visible:ring-offset-4 focus-visible:ring-offset-surface"
@@ -158,7 +164,7 @@ export function Contact({ email }: ContactProps) {
               ) : null}
               <p
                 aria-atomic="true"
-                className="mt-4 min-h-6 text-sm text-ink-muted"
+                className="mt-2 min-h-5 text-sm text-ink-muted [@media(max-height:32rem)]:min-h-0"
                 role="status"
               >
                 {copyStatus}
@@ -166,7 +172,7 @@ export function Contact({ email }: ContactProps) {
             </div>
           </div>
 
-          <div className="flex flex-col justify-between gap-10 lg:pt-8">
+          <div className="grid grid-cols-2 content-start gap-6 lg:flex lg:flex-col lg:justify-between lg:gap-10 lg:pt-8 [@media(max-height:32rem)]:grid [@media(max-height:32rem)]:gap-4 [@media(max-height:32rem)]:pt-0">
             <div>
               <p className="font-mono text-(length:--text-small) uppercase tracking-[0.16em] text-ink-muted">
                 Based in
@@ -199,7 +205,7 @@ export function Contact({ email }: ContactProps) {
           </div>
         </div>
 
-        <div className="mt-[clamp(3rem,4vw,8rem)]">
+        <div className="pt-[clamp(0.5rem,4svh,8rem)]">
           <FooterCrowd />
         </div>
         {/* The crowd walks along this rule. */}

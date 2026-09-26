@@ -1,11 +1,13 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  FINISH_SPEED,
+  MAX_DELTA_S,
   MIN_VISIBLE_MS,
   RUN_AFTER_MS,
-  RUN_SPEED,
+  RUN_RATE,
   SOFT_CAP,
-  WALK_SPEED,
+  WALK_RATE,
   formatPercent,
   stepProgress,
 } from "./progress";
@@ -49,33 +51,41 @@ describe("stepProgress", () => {
   });
 
   it("advances faster while running than while walking", () => {
-    const deltaSeconds = 0.1;
-    const previous = 0.2;
+    const input = { ready: false, previous: 0.2, deltaSeconds: 0.1, reducedMotion: false };
+    const walk = stepProgress({ ...input, elapsedMs: 500 });
+    const run = stepProgress({ ...input, elapsedMs: RUN_AFTER_MS });
 
-    const walk = stepProgress({
-      elapsedMs: 500,
-      ready: false,
-      previous,
-      deltaSeconds,
-      reducedMotion: false,
-    });
-    const run = stepProgress({
-      elapsedMs: RUN_AFTER_MS,
-      ready: false,
-      previous,
-      deltaSeconds,
-      reducedMotion: false,
-    });
-
-    expect(WALK_SPEED).toBeLessThan(RUN_SPEED);
-    expect(walk.progress - previous).toBeCloseTo(WALK_SPEED * deltaSeconds);
-    expect(run.progress - previous).toBeCloseTo(RUN_SPEED * deltaSeconds);
+    expect(walk.progress).toBeCloseTo(0.2 + (SOFT_CAP - 0.2) * WALK_RATE * 0.1);
+    expect(run.progress).toBeCloseTo(0.2 + (SOFT_CAP - 0.2) * RUN_RATE * 0.1);
     expect(run.progress).toBeGreaterThan(walk.progress);
   });
 
-  it("does not finish before the 3s minimum even when ready", () => {
+  it("stands idle once parked at the soft cap", () => {
     const out = stepProgress({
-      elapsedMs: 2000,
+      elapsedMs: 8000,
+      ready: false,
+      previous: SOFT_CAP,
+      deltaSeconds: 0.05,
+      reducedMotion: false,
+    });
+    expect(out.progress).toBe(SOFT_CAP);
+    expect(out.gait).toBe("idle");
+  });
+
+  it("does not leap after a long stalled frame", () => {
+    const out = stepProgress({
+      elapsedMs: 1000,
+      ready: false,
+      previous: 0.1,
+      deltaSeconds: 4,
+      reducedMotion: false,
+    });
+    expect(out.progress - 0.1).toBeLessThanOrEqual((SOFT_CAP - 0.1) * WALK_RATE * MAX_DELTA_S + 1e-9);
+  });
+
+  it("does not finish before the minimum even when ready", () => {
+    const out = stepProgress({
+      elapsedMs: MIN_VISIBLE_MS - 1000,
       ready: true,
       previous: 0.85,
       deltaSeconds: 0.05,
@@ -85,17 +95,28 @@ describe("stepProgress", () => {
     expect(out.shouldExit).toBe(false);
   });
 
-  it("reaches 1 and signals exit when ready after min visible time", () => {
-    const out = stepProgress({
+  it("sprints to 1 once ready instead of jumping, then signals exit", () => {
+    const sprint = stepProgress({
       elapsedMs: MIN_VISIBLE_MS,
       ready: true,
-      previous: 0.85,
+      previous: 0.5,
       deltaSeconds: 0.05,
       reducedMotion: false,
     });
-    expect(out.progress).toBe(1);
-    expect(out.shouldExit).toBe(true);
-    expect(out.gait).toBe("idle");
+    expect(sprint.progress).toBeCloseTo(0.5 + FINISH_SPEED * 0.05);
+    expect(sprint.gait).toBe("run");
+    expect(sprint.shouldExit).toBe(false);
+
+    const arrive = stepProgress({
+      elapsedMs: MIN_VISIBLE_MS + 500,
+      ready: true,
+      previous: 0.98,
+      deltaSeconds: 0.05,
+      reducedMotion: false,
+    });
+    expect(arrive.progress).toBe(1);
+    expect(arrive.shouldExit).toBe(true);
+    expect(arrive.gait).toBe("idle");
   });
 
   it("stays idle under reduced motion", () => {
