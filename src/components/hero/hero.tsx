@@ -4,7 +4,6 @@ import { motion, useScroll, useSpring } from "motion/react";
 import dynamic from "next/dynamic";
 import { Component, type ReactNode, useRef, useState } from "react";
 
-import { PointerCompanion } from "@/components/hero/pointer-companion";
 import { MagneticLink } from "@/components/ui/magnetic-link";
 import { cn } from "@/lib/cn";
 import { useScrollRange } from "@/lib/use-parallax";
@@ -37,7 +36,6 @@ export function Hero() {
   const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 28, mass: 0.4 });
 
   const lineOneX = useScrollRange(progress, "0%", "-14%", "0%");
-  const lineTwoX = useScrollRange(progress, "0%", "10%", "0%");
   const introY = useScrollRange(progress, "0px", "-140px", "0px");
   const orbY = useScrollRange(progress, "0%", "32%", "0%");
   const orbScale = useScrollRange(progress, 1, 0.78, 1);
@@ -55,12 +53,9 @@ export function Hero() {
           Portfolio / 2026
         </p>
 
-        <h1 className="hero-rise max-w-[10ch] text-[length:var(--text-display)] font-semibold leading-[0.82] tracking-[-0.075em] text-ink [animation-delay:80ms]">
+        <h1 className="hero-rise max-w-[14ch] text-[length:var(--text-display)] font-semibold leading-[0.82] tracking-[-0.075em] text-ink [animation-delay:80ms]">
           <motion.span className="block" style={{ x: lineOneX }}>
-            Front-end developer.
-          </motion.span>
-          <motion.span className="block text-ink-muted" style={{ x: lineTwoX }}>
-            Full-stack developer.
+            I build digital experiences.
           </motion.span>
         </h1>
 
@@ -69,8 +64,8 @@ export function Hero() {
           style={{ y: introY }}
         >
           <p className="max-w-[38rem] text-[length:var(--text-body)] leading-relaxed text-ink-muted">
-            I create expressive, resilient digital experiences where meticulous
-            interfaces meet dependable full-stack engineering.
+            I create thoughtful, reliable digital experiences where design,
+            interaction, and technology work together.
           </p>
 
           <div className="flex flex-wrap gap-x-6 gap-y-2">
@@ -111,10 +106,6 @@ export function Hero() {
           <SceneBoundary>
             <HeroScene onReady={() => setIsSceneReady(true)} />
           </SceneBoundary>
-
-          {/* <div className="absolute bottom-4 right-1 z-10 sm:bottom-8 sm:right-6">
-            <PointerCompanion />
-          </div> */}
         </motion.div>
       </div>
     </section>

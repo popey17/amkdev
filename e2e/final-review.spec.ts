@@ -15,7 +15,7 @@ function revealTargets(page: Page) {
     heroHeading: page.getByRole("heading", { level: 1 }),
     heroAction: page.getByRole("link", { name: /view selected work/i }),
     about: page.getByRole("heading", {
-      name: /crafted interfaces with dependable engineering/i,
+      name: /i like building things that feel good to use/i,
     }),
     project: page.getByRole("heading", { name: "Leo's Personal AI Chatbot" }),
     contact: page.getByRole("heading", { name: /let's work together/i }),
@@ -145,12 +145,11 @@ test("semantic color utilities resolve to their tokens in the browser", async ({
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/");
 
-  const muted = page.getByText("Full-stack developer.", { exact: true });
-  await expect(muted).toHaveCSS("color", "rgb(167, 170, 161)");
-  await expect(page.getByTestId("pointer-companion-eye")).toHaveCSS(
-    "background-color",
-    "rgb(18, 20, 18)",
+  const muted = page.getByText(
+    "I create thoughtful, reliable digital experiences where design, interaction, and technology work together.",
+    { exact: true },
   );
+  await expect(muted).toHaveCSS("color", "rgb(167, 170, 161)");
   await expect(page.getByTestId("header-bar")).toHaveCSS(
     "border-bottom-color",
     "rgba(243, 241, 232, 0.14)",
@@ -390,12 +389,13 @@ test("drawer closes when the viewport crosses to desktop and focus stays visible
 test("metadata names the developer and role", async ({ page }) => {
   await page.goto("/");
 
-  await expect(page).toHaveTitle("Aung Myat Kyaw — Front-end & Full-stack Developer");
+  await expect(page).toHaveTitle("Aung Myat Kyaw — Developer");
   const description = await page
     .locator('meta[name="description"]')
     .getAttribute("content");
   expect(description).toMatch(/Aung Myat Kyaw/);
-  expect(description).toMatch(/front-end/i);
+  expect(description).toMatch(/developer/i);
+  expect(description).not.toMatch(/front-end|full-stack/i);
   expect(description!.length).toBeLessThanOrEqual(160);
 });
 

@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Aung Myat Kyaw — Front-end & Full-stack Developer",
+  title: "Aung Myat Kyaw — Developer",
   description:
-    "Aung Myat Kyaw is a Bangkok-based front-end and full-stack developer crafting fast, accessible, expressive web experiences.",
+    "Aung Myat Kyaw is a developer building thoughtful digital products and interactive experiences.",
 };
 
 // Applies the stored theme before first paint; runs before React hydrates.

@@ -199,7 +199,7 @@ export function Contact({ email }: ContactProps) {
           </div>
         </div>
 
-        <div className="mt-[clamp(3rem,7vw,8rem)]">
+        <div className="mt-[clamp(3rem,4vw,8rem)]">
           <FooterCrowd />
         </div>
         {/* The crowd walks along this rule. */}

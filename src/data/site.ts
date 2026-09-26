@@ -23,7 +23,7 @@ export type SiteContact = {
 export const contact = {
   name: "Aung Myat Kyaw",
   shortName: "AMK",
-  tagline: "Front-end Developer & Full Stack Web Developer",
+  tagline: "Developer",
   location: "Bangkok, Thailand",
   availability: "Open for collaborations",
   timezone: "Asia/Bangkok",

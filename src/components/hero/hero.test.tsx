@@ -32,12 +32,17 @@ vi.mock("next/dynamic", () => ({
 
 import { Hero } from "./hero";
 
-it("states the role and exposes primary actions", () => {
+it("states the positioning headline and exposes primary actions", () => {
   render(<Hero />);
 
   expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
-    /front-end developer.*full-stack developer/i,
+    /i build digital experiences\.?/i,
   );
+  expect(
+    screen.getByText(
+      /i create thoughtful, reliable digital experiences where design, interaction, and technology work together/i,
+    ),
+  ).toBeInTheDocument();
   expect(
     screen.getByRole("link", { name: /view selected work/i }),
   ).toHaveAttribute("href", "#work");
@@ -70,11 +75,6 @@ it("keeps decorative visuals hidden while the CSS fallback remains present", () 
     "aria-hidden",
     "true",
   );
-  expect(screen.getByTestId("pointer-companion")).toHaveAttribute(
-    "aria-hidden",
-    "true",
-  );
-  expect(screen.getByTestId("pointer-companion")).not.toHaveAccessibleName();
 });
 
 it("preserves the CSS fallback when the WebGL scene fails", () => {

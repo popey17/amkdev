@@ -23,7 +23,7 @@ Reposition the portfolio so Aung Myat Kyaw reads as a **Developer** generally �
 | H1 | I build digital experiences. |
 | Supporting | I create thoughtful, reliable digital experiences where design, interaction, and technology work together. |
 
-Keep existing CTAs, eyebrow (`Portfolio / 2026`), and hero scene. Replace the two role lines (`Front-end developer.` / `Full-stack developer.`) with the new H1. Adapt parallax so a single headline still feels intentional — do not keep a second muted “role” line.
+Keep existing CTAs, eyebrow (`Portfolio / 2026`), and hero scene. Replace the two role lines (`Front-end developer.` / `Full-stack developer.`) with the new single H1. **Remove the second muted role line completely.** Preserve visual composition, spacing, parallax feel, and hierarchy; if the old two-line structure leaves excessive empty space, make only the minimum CSS/layout adjustment so the single headline feels intentional. Do not redesign the hero or add new visual elements.
 
 ### About (`src/components/about/about.tsx`)
 
@@ -60,14 +60,29 @@ Do **not** mention Bangkok or location in About copy. Location remains in Contac
 - Tone: personal, modern, concise — not corporate/agency.
 - Keep copy flexible for future tech directions; avoid locking identity to one stack or layer.
 
+## Pre-change inventory
+
+Before editing, search the entire codebase for user-facing and metadata occurrences of `Front-end`, `Front-end Developer`, `Full-stack`, `Full-stack Developer`, and capitalization/spacing variants (`front-end`, `full-stack`, `Full Stack`, etc.). Update every relevant occurrence so the shipped site does not expose those role titles. Also check Open Graph, Twitter/social metadata, structured metadata, `robots`/`sitemap`/`manifest`, and any other SEO-related files — not only `layout.tsx`.
+
+Historical docs under `docs/` and `.superpowers/` may retain old wording; they are out of scope unless they are user-facing at runtime.
+
 ## Tests
 
-Update unit and e2e assertions that expect front-end/full-stack wording (notably `hero.test.tsx`, `e2e/final-review.spec.ts`, and any metadata title/description checks) to match the new strings.
+Update unit and e2e assertions that expect front-end/full-stack wording (notably `hero.test.tsx`, `e2e/final-review.spec.ts`, and any metadata title/description checks) to match the new strings. The e2e muted-color probe that currently targets `Full-stack developer.` must use another existing `text-ink-muted` element (e.g. hero supporting paragraph).
+
+## Verification (after implementation)
+
+1. Run the relevant unit tests.
+2. Run the e2e / final-review tests.
+3. Search the final codebase for `Front-end` and `Full-stack` variants in runtime source (`src/`, `e2e/`).
+4. Verify the rendered hero and About sections.
+5. Verify page title and meta description.
+6. Confirm unrelated project copy, tech marquee, CTAs, and visual styling were not changed.
 
 ## Acceptance criteria
 
 1. No user-facing string on the site names Front-end or Full-stack as a role.
-2. Hero and About match the copy map above (About bio has no location).
-3. Tagline and document metadata use Developer positioning.
-4. Existing layout and visuals remain intact aside from necessary hero H1 adaptation.
+2. Hero and About match the copy map above (About bio has no location; hero has no second muted role line).
+3. Tagline and document metadata use Developer positioning; no OG/Twitter/structured metadata still names the old roles.
+4. Existing layout and visuals remain intact aside from the minimum hero H1 adaptation.
 5. Related unit and e2e tests pass with updated expectations.

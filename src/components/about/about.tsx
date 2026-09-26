@@ -26,8 +26,8 @@ export function About() {
             <span aria-hidden="true" className="h-px w-8 bg-ink/20" />
             About
           </p>
-          <h2 className="max-w-[12ch] text-[length:var(--text-h2)] font-semibold leading-[0.92] tracking-[-0.06em] text-ink">
-            <SplitText>Crafted interfaces with dependable engineering.</SplitText>
+          <h2 className="max-w-[16ch] text-[length:var(--text-h2)] font-semibold leading-[0.92] tracking-[-0.06em] text-ink">
+            <SplitText>I like building things that feel good to use.</SplitText>
           </h2>
         </Reveal>
       </motion.div>
@@ -35,10 +35,9 @@ export function About() {
       <motion.div style={{ y: copyY }}>
         <Reveal className="grid gap-[clamp(1.5rem,3vw,2.5rem)]" delay={0.1}>
           <p className="max-w-[38rem] text-[length:var(--text-body)] leading-relaxed text-ink-muted">
-            I&apos;m Aung Myat Kyaw, a front-end and full-stack developer based in
-            Bangkok. I build expressive digital products where editorial design,
-            performance budgets, and accessibility stay in balance from the first
-            sketch through production.
+            I&apos;m Aung Myat Kyaw, a developer. I build digital products and
+            interactive experiences, combining thoughtful design with technology to
+            create things that are useful, engaging, and reliable.
           </p>
 
           <div className="grid gap-6 border-t border-ink/15 pt-6 sm:grid-cols-2">
@@ -47,7 +46,8 @@ export function About() {
                 Focus
               </p>
               <p className="mt-2 text-[length:var(--text-body)] leading-relaxed text-ink">
-                Fluid layouts, motion with intent, and resilient component systems.
+                Digital products, interactive experiences, and experiments that stay
+                simple to use.
               </p>
             </div>
             <div>
@@ -55,8 +55,8 @@ export function About() {
                 Approach
               </p>
               <p className="mt-2 text-[length:var(--text-body)] leading-relaxed text-ink">
-                Ship fast without sacrificing clarity, keyboard access, or load
-                performance.
+                Turn ideas into things that feel clear, useful, and enjoyable —
+                without losing reliability.
               </p>
             </div>
           </div>
