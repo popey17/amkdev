@@ -15,6 +15,7 @@ import { LogoMark, LogoWordmark } from "@/components/ui/logo";
 import { MagneticLink } from "@/components/ui/magnetic-link";
 import { contact, navigation, socials } from "@/data/site";
 import { cn } from "@/lib/cn";
+import { isVerifiedHttpsUrl, isVerifiedSocialUrl } from "@/lib/social-url";
 import { applyTheme, readTheme, subscribeToTheme, type Theme } from "@/lib/theme";
 
 const focusableSelector =
@@ -283,21 +284,27 @@ export function SiteHeader() {
                         {contact.availability}
                       </span>
                       <div className="flex gap-4">
-                        {socials.map((social) => (
-                          <a
-                            className={cn(
-                              "inline-flex min-h-11 items-center text-sm text-ink-muted",
-                              "transition-colors hover:text-accent-ink",
-                              focusRing,
-                            )}
-                            href={social.url}
-                            key={social.platform}
-                            rel="noreferrer"
-                            target="_blank"
-                          >
-                            {social.label}
-                          </a>
-                        ))}
+                        {socials
+                          .filter((social) => isVerifiedSocialUrl(social.url))
+                          .map((social) => {
+                            const external = isVerifiedHttpsUrl(social.url);
+                            return (
+                              <a
+                                className={cn(
+                                  "inline-flex min-h-11 items-center text-sm text-ink-muted",
+                                  "transition-colors hover:text-accent-ink",
+                                  focusRing,
+                                )}
+                                href={social.url}
+                                key={social.platform}
+                                {...(external
+                                  ? { rel: "noreferrer", target: "_blank" }
+                                  : {})}
+                              >
+                                {social.label}
+                              </a>
+                            );
+                          })}
                       </div>
                     </div>
                   </div>

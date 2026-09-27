@@ -132,14 +132,22 @@ describe("Contact", () => {
     },
   );
 
-  it("renders verified social links with safe external-link attributes", () => {
+  it("renders verified social links with safe attributes", () => {
     render(<Contact />);
 
-    for (const link of screen.getAllByRole("link")) {
-      expect(link).toHaveAttribute("target", "_blank");
-      expect(link).toHaveAttribute("rel", "noreferrer noopener");
-      expect(link.getAttribute("href")).toMatch(/^https:\/\//);
-    }
+    const linkedIn = screen.getByRole("link", { name: /^LinkedIn$/ });
+    expect(linkedIn).toHaveAttribute("href", "https://www.linkedin.com/in/leo17/");
+    expect(linkedIn).toHaveAttribute("target", "_blank");
+    expect(linkedIn).toHaveAttribute("rel", "noreferrer noopener");
+
+    const github = screen.getByRole("link", { name: /^GitHub$/ });
+    expect(github).toHaveAttribute("href", "https://github.com/popey17");
+    expect(github).toHaveAttribute("target", "_blank");
+
+    const email = screen.getByRole("link", { name: /^Email$/ });
+    expect(email).toHaveAttribute("href", "mailto:contact@amkdev.com");
+    expect(email).not.toHaveAttribute("target");
+    expect(email).not.toHaveAttribute("rel");
   });
 });
 

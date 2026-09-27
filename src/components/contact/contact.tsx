@@ -8,25 +8,15 @@ import { FooterCrowd } from "@/components/contact/footer-crowd";
 import { LocalTime } from "@/components/contact/local-time";
 import { contact, socials } from "@/data/site";
 import { useScrollRange } from "@/lib/use-parallax";
+import {
+  isValidEmail,
+  isVerifiedHttpsUrl,
+  isVerifiedSocialUrl,
+} from "@/lib/social-url";
 
 type ContactProps = {
   email?: string;
 };
-
-const configuredEmailPattern =
-  /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i;
-
-function isValidEmail(value: string | undefined): value is string {
-  return Boolean(value && configuredEmailPattern.test(value));
-}
-
-function isVerifiedHttpsUrl(value: string): boolean {
-  try {
-    return new URL(value).protocol === "https:";
-  } catch {
-    return false;
-  }
-}
 
 /**
  * How much of the sticky footer the page above has uncovered: 0 while the
@@ -70,7 +60,7 @@ export function Contact({ email }: ContactProps) {
   const emailRef = useRef<HTMLSpanElement>(null);
   const configuredEmail = isValidEmail(email) ? email : undefined;
   const verifiedSocials = socials.filter((social) =>
-    isVerifiedHttpsUrl(social.url),
+    isVerifiedSocialUrl(social.url),
   );
   const linkedIn = verifiedSocials.find(
     (social) => social.platform === "linkedin",
@@ -187,19 +177,23 @@ export function Contact({ email }: ContactProps) {
 
             <nav aria-label="Social links">
               <ul className="grid gap-1">
-                {verifiedSocials.map((social) => (
-                  <li key={social.platform}>
-                    <a
-                      className="flex min-h-11 items-center justify-between rounded-sm border-b border-ink/15 py-2 text-ink outline-none transition-colors hover:border-accent-ink hover:text-accent-ink focus-visible:ring-2 focus-visible:ring-accent-ink focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
-                      href={social.url}
-                      rel="noreferrer noopener"
-                      target="_blank"
-                    >
-                      {social.label}
-                      <ArrowUpRight aria-hidden="true" className="size-4" />
-                    </a>
-                  </li>
-                ))}
+                {verifiedSocials.map((social) => {
+                  const external = isVerifiedHttpsUrl(social.url);
+                  return (
+                    <li key={social.platform}>
+                      <a
+                        className="flex min-h-11 items-center justify-between rounded-sm border-b border-ink/15 py-2 text-ink outline-none transition-colors hover:border-accent-ink hover:text-accent-ink focus-visible:ring-2 focus-visible:ring-accent-ink focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+                        href={social.url}
+                        {...(external
+                          ? { rel: "noreferrer noopener", target: "_blank" }
+                          : {})}
+                      >
+                        {social.label}
+                        <ArrowUpRight aria-hidden="true" className="size-4" />
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </nav>
           </div>

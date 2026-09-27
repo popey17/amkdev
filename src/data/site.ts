@@ -3,7 +3,7 @@ export type NavItem = {
   readonly label: string;
 };
 
-export type SocialPlatform = "linkedin" | "github";
+export type SocialPlatform = "linkedin" | "github" | "email";
 
 export type SocialLink = {
   readonly platform: SocialPlatform;
@@ -45,5 +45,10 @@ export const socials = [
     platform: "github",
     label: "GitHub",
     url: "https://github.com/popey17",
+  },
+  {
+    platform: "email",
+    label: "Email",
+    url: "mailto:contact@amkdev.com",
   },
 ] as const satisfies readonly SocialLink[];

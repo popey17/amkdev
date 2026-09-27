@@ -150,7 +150,7 @@ it("focuses the first drawer link and wraps focus at both boundaries", async () 
   const firstFocusable = within(drawer).getByRole("button", {
     name: /light theme/i,
   });
-  const lastFocusable = within(drawer).getByRole("link", { name: "GitHub" });
+  const lastFocusable = within(drawer).getByRole("link", { name: "Email" });
 
   firstFocusable.focus();
   await user.tab({ shift: true });
