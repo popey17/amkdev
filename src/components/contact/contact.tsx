@@ -175,7 +175,7 @@ export function Contact({ email }: ContactProps) {
           <div className="grid grid-cols-2 content-start gap-6 lg:flex lg:flex-col lg:justify-between lg:gap-10 lg:pt-8 [@media(max-height:32rem)]:grid [@media(max-height:32rem)]:gap-4 [@media(max-height:32rem)]:pt-0">
             <div>
               <p className="font-mono text-(length:--text-small) uppercase tracking-[0.16em] text-ink-muted">
-                Based in
+                Currently in
               </p>
               <p className="mt-2 text-(length:--text-body) text-ink">
                 {contact.location}

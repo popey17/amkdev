@@ -1,6 +1,7 @@
 import { About } from "@/components/about/about";
 import { TechMarquee } from "@/components/about/tech-marquee";
 import { Contact } from "@/components/contact/contact";
+import { ContactHashScroll } from "@/components/contact/contact-hash-scroll";
 import { Hero } from "@/components/hero/hero";
 import { SiteHeader } from "@/components/layout/site-header";
 import { Projects } from "@/components/projects/projects";
@@ -12,6 +13,7 @@ import { techStack } from "@/data/tech-stack";
 export default function Home() {
   return (
     <>
+      <ContactHashScroll />
       <ScrollProgress />
       <SiteHeader />
       {/* Opaque and above the sticky footer, so scrolling to the end lifts it off like a curtain. */}

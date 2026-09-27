@@ -19,6 +19,10 @@ export const metadata: Metadata = {
   title: "Aung Myat Kyaw — Developer",
   description:
     "Aung Myat Kyaw is a developer building thoughtful digital products and interactive experiences.",
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }, { url: "/favicon.ico" }],
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 // Applies the stored theme before first paint; runs before React hydrates.

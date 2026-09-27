@@ -34,18 +34,18 @@ export type Project = {
 export const projects = [
   {
     slug: "go-url-shortener",
-    title: "Go URL Shortener",
+    title: "URL Shortener",
     summary: "A URL shortener built with Go and PostgreSQL.",
     year: "2026",
     tags: ["Go", "PostgreSQL"],
-    liveUrl: "https://github.com/popey17/go-url-shortener",
-    sourceUrl: "https://github.com/popey17/go-url-shortener",
+    liveUrl: "https://minilink.amkdev.com/",
+    sourceUrl: "https://github.com/popey17/urlshortener",
     visual: "orb",
     featured: true,
     image: {
       src: "/images/projects/miniLink.webp",
-      alt: "Description of the project interface",
-      position: "50% 35%",
+      alt: "miniLink",
+      position: "50% 100%",
     },
     overlay: {
       eyebrow: "Personal Project",
@@ -54,18 +54,18 @@ export const projects = [
   },
   {
     slug: "personal-website",
-    title: "Leo's Personal Website",
+    title: "My Personal Website",
     summary: "A personal website built with Next.js and Tailwind CSS.",
     year: "2026",
     tags: ["Next.js", "Tailwind CSS"],
-    liveUrl: "https://aungmyatkyaw.com/",
-    sourceUrl: "https://github.com/popey17/personal-website",
+    liveUrl: "https://amkdev.com/",
+    sourceUrl: "https://github.com/popey17/amkdev",
     visual: "orb",
     featured: true,
     image: {
       src: "/images/projects/img_portfolio.webp",
-      alt: "Description of the project interface",
-      position: "50% 35%",
+      alt: "amkdev",
+      position: "0% 100%",
     },
     overlay: {
       eyebrow: "Personal Project"
@@ -79,14 +79,14 @@ export const projects = [
       "A conversational AI workspace designed around fast, focused personal assistance.",
     year: "2026",
     tags: ["Next.js", "AI", "React"],
-    liveUrl: "https://chat.aungmyatkyaw.com/",
+    liveUrl: "https://chat.amkdev.com/",
     sourceUrl: "https://github.com/popey17/personal-chatbot",
     visual: "orb",
     featured: true,
     image: {
       src: "/images/projects/leoChat.webp",
       alt: "Leo's Personal AI Chatbot",
-      position: "100% 100%",
+      position: "50% 100%",
     },
     overlay: {
       eyebrow: "Personal Project"
@@ -106,8 +106,8 @@ export const projects = [
     featured: true,
     image: {
       src: "/images/projects/img_3js.webp",
-      alt: "Description of the project interface",
-      position: "50% 35%",
+      alt: "3js Explode Text",
+      position: "0% 100%",
     },
     overlay: {
       eyebrow: "Personal Project",

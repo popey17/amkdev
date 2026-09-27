@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 44 44">
+  <!-- Rest-state LogoMark: outlined square behind a solid lime square with geometric A. -->
+  <rect
+    x="11"
+    y="11"
+    width="30"
+    height="30"
+    stroke="rgb(243 241 232 / 35%)"
+    stroke-width="1.5"
+  />
+  <rect x="3" y="3" width="30" height="30" fill="#c6ff32" />
+  <path
+    d="M10 26.5 18 9.5l8 17"
+    stroke="#0a0b0a"
+    stroke-linecap="square"
+    stroke-width="3.4"
+  />
+  <path d="M13.6 20.5h6.6" stroke="#0a0b0a" stroke-width="3" />
+  <rect x="22.6" y="18.8" width="3.4" height="3.4" fill="#0a0b0a" />
+</svg>
