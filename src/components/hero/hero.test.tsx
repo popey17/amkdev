@@ -36,11 +36,11 @@ it("states the positioning headline and exposes primary actions", () => {
   render(<Hero />);
 
   expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
-    /i build digital experiences\.?/i,
+    /i build systems that hold up\.?/i,
   );
   expect(
     screen.getByText(
-      /i create thoughtful, reliable digital experiences where design, interaction, and technology work together/i,
+      /focused on go — rest apis, postgresql, jwt auth, and concurrent workers/i,
     ),
   ).toBeInTheDocument();
   expect(

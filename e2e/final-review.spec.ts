@@ -146,7 +146,7 @@ test("semantic color utilities resolve to their tokens in the browser", async ({
   await page.goto("/");
 
   const muted = page.getByText(
-    "I create thoughtful, reliable digital experiences where design, interaction, and technology work together.",
+    "Focused on Go — REST APIs, PostgreSQL, JWT auth, and concurrent workers, owned from API design through UI integration.",
     { exact: true },
   );
   await expect(muted).toHaveCSS("color", "rgb(167, 170, 161)");
@@ -395,7 +395,7 @@ test("metadata names the developer and role", async ({ page }) => {
     .getAttribute("content");
   expect(description).toMatch(/Aung Myat Kyaw/);
   expect(description).toMatch(/developer/i);
-  expect(description).not.toMatch(/front-end|full-stack/i);
+  expect(description).not.toMatch(/junior|backend|front-end|frontend|full-stack/i);
   expect(description!.length).toBeLessThanOrEqual(160);
 });
 

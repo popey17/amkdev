@@ -29,7 +29,9 @@ describe("project data", () => {
   it("has unique slugs and secure external URLs", () => {
     expect(new Set(projects.map(({ slug }) => slug)).size).toBe(projects.length);
     for (const project of projects) {
-      expect(project.liveUrl).toMatch(/^https:\/\//);
+      if (project.liveUrl !== undefined) {
+        expect(project.liveUrl).toMatch(/^https:\/\//);
+      }
       expect(project.sourceUrl).toMatch(/^https:\/\/github\.com\//);
     }
   });

@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Aung Myat Kyaw — Developer",
   description:
-    "Aung Myat Kyaw is a developer building thoughtful digital products and interactive experiences.",
+    "Aung Myat Kyaw is a developer building Go REST APIs with PostgreSQL, JWT auth, and concurrent workers.",
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }, { url: "/favicon.ico" }],
     apple: "/apple-touch-icon.png",

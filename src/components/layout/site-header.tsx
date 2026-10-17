@@ -159,7 +159,7 @@ export function SiteHeader() {
             ref={homeLinkRef}
           >
             <LogoMark className={cn("transition-[width,height] duration-300", isCondensed && "size-9")} />
-            <LogoWordmark name={contact.name} />
+            <LogoWordmark name={contact.name} tagline={contact.tagline} />
           </MagneticLink>
 
           <div className="hidden items-center gap-5 lg:flex">

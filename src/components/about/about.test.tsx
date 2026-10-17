@@ -34,23 +34,25 @@ it("positions the developer without front-end or full-stack role titles", () => 
   render(<About />);
 
   expect(screen.getByRole("heading", { level: 2 })).toHaveTextContent(
-    /i like building things that feel good to use\.?/i,
+    /i like shipping apis that stay clear and solid\.?/i,
   );
   expect(
     screen.getByText(
-      /i'm aung myat kyaw, a developer\. i build digital products and interactive experiences/i,
+      /i'm aung myat kyaw, a developer\. after 3\+ years shipping production web apps/i,
     ),
   ).toBeInTheDocument();
   expect(screen.queryByText(/bangkok/i)).not.toBeInTheDocument();
-  expect(screen.queryByText(/front-end|full-stack/i)).not.toBeInTheDocument();
+  expect(
+    screen.queryByText(/junior|backend|front-end|frontend|full-stack/i),
+  ).not.toBeInTheDocument();
   expect(
     screen.getByText(
-      /digital products, interactive experiences, and experiments that stay simple to use/i,
+      /go apis, postgresql, and concurrency patterns that stay race-safe/i,
     ),
   ).toBeInTheDocument();
   expect(
     screen.getByText(
-      /turn ideas into things that feel clear, useful, and enjoyable/i,
+      /own features end-to-end — from api design and data ownership to ui integration/i,
     ),
   ).toBeInTheDocument();
 });

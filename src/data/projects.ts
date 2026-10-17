@@ -23,7 +23,7 @@ export type Project = {
   readonly summary: string;
   readonly year: string;
   readonly tags: readonly string[];
-  readonly liveUrl: string;
+  readonly liveUrl?: string;
   readonly sourceUrl: string;
   readonly visual: ProjectVisual;
   readonly featured: boolean;
@@ -33,9 +33,29 @@ export type Project = {
 
 export const projects = [
   {
+    slug: "website-crawler",
+    title: "CrawlX",
+    summary:
+      "Concurrent Go CLI crawler using a worker pool, channels, and mutex-protected visited tracking — reports broken links with referrers and is race-checked with Go’s -race flag.",
+    year: "2026",
+    tags: ["Go", "CLI", "Concurrency"],
+    sourceUrl: "https://github.com/popey17/crawlX",
+    visual: "type",
+    featured: true,
+    image: {
+      src: "/images/projects/crawlX.webp",
+      alt: "CrawlX",
+      position: "50% 100%",
+    },
+    overlay: {
+      eyebrow: "Personal Project",
+    },
+  },
+  {
     slug: "go-url-shortener",
-    title: "URL Shortener",
-    summary: "A URL shortener built with Go and PostgreSQL.",
+    title: "miniLink",
+    summary:
+      "REST API that creates short codes, validates URLs, and redirects with click tracking — persisted in PostgreSQL via pgx, with a live React UI.",
     year: "2026",
     tags: ["Go", "PostgreSQL"],
     liveUrl: "https://minilink.amkdev.com/",
@@ -44,12 +64,31 @@ export const projects = [
     featured: true,
     image: {
       src: "/images/projects/miniLink.webp",
-      alt: "miniLink",
+      alt: "miniLink URL shortener",
       position: "50% 100%",
     },
     overlay: {
       eyebrow: "Personal Project",
-      // caption: "A URL shortener built with Go and PostgreSQL.",
+    },
+  },
+  {
+    slug: "personal-notes-api",
+    title: "Personal Notes API",
+    summary:
+      "Notes API with register/login, bcrypt hashing, and JWT-protected routes — ownership-scoped so notes stay private to each user, with SQL migrations and auth unit tests.",
+    year: "2026",
+    tags: ["Go", "PostgreSQL", "JWT"],
+    liveUrl: "https://ubinote-seven.vercel.app",
+    sourceUrl: "https://github.com/popey17/Ubinote",
+    visual: "reveal",
+    featured: true,
+    image: {
+      src: "/images/projects/ubinote.webp",
+      alt: "Ubinote",
+      position: "50% 100%",
+    },
+    overlay: {
+      eyebrow: "Personal Project",
     },
   },
   {
@@ -68,8 +107,7 @@ export const projects = [
       position: "0% 100%",
     },
     overlay: {
-      eyebrow: "Personal Project"
-      // caption: "A personal website built with Next.js and Tailwind CSS.",
+      eyebrow: "Personal Project",
     },
   },
   {
@@ -81,7 +119,7 @@ export const projects = [
     tags: ["Next.js", "AI", "React"],
     liveUrl: "https://chat.amkdev.com/",
     sourceUrl: "https://github.com/popey17/personal-chatbot",
-    visual: "orb",
+    visual: "dragon",
     featured: true,
     image: {
       src: "/images/projects/leoChat.webp",
@@ -89,8 +127,7 @@ export const projects = [
       position: "50% 100%",
     },
     overlay: {
-      eyebrow: "Personal Project"
-      // caption: "A conversational AI workspace designed around fast, focused personal assistance.",
+      eyebrow: "Personal Project",
     },
   },
   {
@@ -111,7 +148,6 @@ export const projects = [
     },
     overlay: {
       eyebrow: "Personal Project",
-      // caption: "A short project highlight.",
     },
-  }
+  },
 ] as const satisfies readonly Project[];

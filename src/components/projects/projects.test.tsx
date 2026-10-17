@@ -38,19 +38,20 @@ it("renders verified project actions in an ordered section", () => {
   ).toBeVisible();
   expect(screen.getByRole("link", { name: /view live/i })).toHaveAttribute(
     "href",
-    "https://chat.aungmyatkyaw.com/",
+    "https://minilink.amkdev.com/",
   );
   expect(screen.getByRole("link", { name: /source code/i })).toHaveAttribute(
     "href",
-    "https://github.com/popey17/personal-chatbot",
+    "https://github.com/popey17/urlshortener",
   );
 });
 
-it("renders all four visual directions", () => {
+it("renders each project's configured visual direction", () => {
   render(<Projects projects={projects} />);
 
   for (const project of projects) {
-    expect(screen.getByTestId(`project-visual-${project.visual}`)).toHaveAttribute(
+    const card = screen.getByRole("article", { name: project.title });
+    expect(within(card).getByTestId(`project-visual-${project.visual}`)).toHaveAttribute(
       "data-visual",
       project.visual,
     );
@@ -138,7 +139,8 @@ it("scales an inner artwork layer while the clipped frame stays fixed", () => {
   render(<Projects projects={projects} />);
 
   for (const project of projects) {
-    const frame = screen.getByTestId(`project-visual-${project.visual}`);
+    const card = screen.getByRole("article", { name: project.title });
+    const frame = within(card).getByTestId(`project-visual-${project.visual}`);
     const layer = within(frame).getByTestId("project-artwork-layer");
 
     expect(frame).toHaveClass("overflow-clip");

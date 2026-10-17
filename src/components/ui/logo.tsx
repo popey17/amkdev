@@ -38,12 +38,18 @@ export function LogoMark({ className }: { className?: string }) {
   );
 }
 
-export function LogoWordmark({ name }: { name: string }) {
+export function LogoWordmark({
+  name,
+  tagline,
+}: {
+  name: string;
+  tagline: string;
+}) {
   return (
     <span className="hidden flex-col leading-none sm:flex">
       <span className="text-sm font-semibold tracking-tight">{name}</span>
       <span className="mt-1.5 font-mono text-[0.625rem] uppercase tracking-[0.22em] text-ink-muted transition-colors group-hover:text-accent-ink">
-        Developer
+        {tagline}
       </span>
     </span>
   );

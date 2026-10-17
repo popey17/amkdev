@@ -1,12 +1,11 @@
 [
-  { "name": "HTML5", "icon": "html5" },
-  { "name": "CSS3", "icon": "css" },
+  { "name": "Go", "icon": "go" },
+  { "name": "PostgreSQL", "icon": "postgresql" },
+  { "name": "REST APIs", "icon": "lucide:server" },
+  { "name": "TypeScript", "icon": "typescript" },
   { "name": "JavaScript", "icon": "javascript" },
   { "name": "React", "icon": "react" },
   { "name": "Next.js", "icon": "nextdotjs" },
-  { "name": "PHP", "icon": "php" },
-  { "name": "Laravel", "icon": "laravel" },
-  { "name": "Git", "icon": "git" },
-  { "name": "Cloud Services", "icon": "lucide:cloud" },
-  { "name": "Go", "icon": "go" }
+  { "name": "Tailwind CSS", "icon": "tailwindcss" },
+  { "name": "Git", "icon": "git" }
 ]

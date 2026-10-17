@@ -55,7 +55,7 @@ export function Hero() {
 
         <h1 className="hero-rise max-w-[14ch] text-[length:var(--text-display)] font-semibold leading-[0.82] tracking-[-0.075em] text-ink [animation-delay:80ms]">
           <motion.span className="block" style={{ x: lineOneX }}>
-            I build digital experiences.
+            I build systems that hold up.
           </motion.span>
         </h1>
 
@@ -64,8 +64,8 @@ export function Hero() {
           style={{ y: introY }}
         >
           <p className="max-w-[38rem] text-[length:var(--text-body)] leading-relaxed text-ink-muted">
-            I create thoughtful, reliable digital experiences where design,
-            interaction, and technology work together.
+            Focused on Go — REST APIs, PostgreSQL, JWT auth, and concurrent
+            workers, owned from API design through UI integration.
           </p>
 
           <div className="flex flex-wrap gap-x-6 gap-y-2">
